@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller1">
+   <children>
+      <BorderPane layoutX="200.0" layoutY="92.0" prefHeight="235.0" prefWidth="243.0">
+         <left>
+            <Button fx:id="bt1" mnemonicParsing="false" onAction="#display" text="Button" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <Label prefHeight="106.0" prefWidth="198.0" text="Lable" textFill="RED" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+         </bottom></BorderPane>
+   </children>
+</AnchorPane>
