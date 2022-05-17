@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Controller2 {
-    int who = 1;int wait = 0;
+    int who = 1;int wait = 0;int ac = 0;int bc = 0;int cc = 0;
     DataHolder data = DataHolder.get();
     DataHolder data2 = DataHolder.get2();
     @FXML
@@ -46,32 +46,32 @@ public class Controller2 {
     Image cr =new Image("cred.png");
     @FXML
     void a_enter(){
-        wait=0;
+        if(ac==0)wait=0;
         aimage.setImage(ar);
     }
     @FXML
     void a_exit(){
-        if(wait==0)
+        if(wait==0&&ac!=1)
             aimage.setImage(a);
     }
     @FXML
     void b_enter(){
-        wait=0;
+        if(bc==0)wait=0;
         bimage.setImage(br);
     }
     @FXML
     void b_exit(){
-        if(wait==0)
+        if(wait==0&&bc!=1)
             bimage.setImage(b);
     }
     @FXML
     void c_enter(){
-        wait=0;
+        if(cc==0)wait=0;
         cimage.setImage(cr);
     }
     @FXML
     void c_exit(){
-        if(wait==0)
+        if(wait==0&&cc!=1)
             cimage.setImage(c);
     }
     @FXML
@@ -80,6 +80,7 @@ public class Controller2 {
         bimage.setImage(b);
         cimage.setImage(c);
         wait=1;
+        ac=1;bc=0;cc=0;
         LABEL1.setText("Player "+who+" choosed a");
         switch (who){
             case 1:
@@ -95,6 +96,7 @@ public class Controller2 {
         aimage.setImage(a);
         bimage.setImage(br);
         cimage.setImage(c);
+        ac=0;bc=1;cc=0;
         wait=1;
         LABEL1.setText("Player "+who+" choosed b");
         switch (who){
@@ -112,6 +114,7 @@ public class Controller2 {
         bimage.setImage(b);
         cimage.setImage(cr);
         wait=1;
+        ac=0;bc=0;cc=1;
         LABEL1.setText("Player "+who+" choosed c");
         switch (who){
             case 1:
