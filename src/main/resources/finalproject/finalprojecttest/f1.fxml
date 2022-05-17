@@ -4,18 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller1">
    <children>
-      <BorderPane layoutX="200.0" layoutY="92.0" prefHeight="235.0" prefWidth="243.0">
-         <left>
-            <Button fx:id="bt1" mnemonicParsing="false" onAction="#display" text="Button" BorderPane.alignment="CENTER" />
-         </left>
-         <bottom>
-            <Label prefHeight="106.0" prefWidth="198.0" text="Lable" textFill="RED" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="38.0" />
-               </font>
-            </Label>
-         </bottom></BorderPane>
+      <Button ellipsisString="" layoutX="175.0" layoutY="174.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#display" style="-fx-background-color: pink;" text="2     V.S     2" textAlignment="CENTER" textFill="#df1515" textOverrun="LEADING_WORD_ELLIPSIS">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="27.0" />
+         </font></Button>
+      <Label fx:id="label" layoutX="88.0" layoutY="61.0" text="Game Start!!!" textFill="#d7d71c">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="70.0" />
+         </font>
+      </Label>
+      <Button fx:id="btForOver" layoutX="463.0" layoutY="341.0" mnemonicParsing="false" onAction="#gameOver" style="-fx-background-color: PINK;" text="Exit" textFill="#ff0101">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+         </font>
+      </Button>
    </children>
-</AnchorPane>
+</Pane>
