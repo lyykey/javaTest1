@@ -1,38 +1,146 @@
 package finalproject.finalprojecttest;
 
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.Objects;
-/**
- 選腳色
- */
-public class Controller2 {
-    DataHolder data = DataHolder.get();
-    Dice dice = new Dice();
 
+public class Controller2 {
+    int who = 1;int wait = 0;
+    DataHolder data = DataHolder.get();
+    DataHolder data2 = DataHolder.get2();
     @FXML
-    Label label = new Label();
+    ImageView aimage;
     @FXML
-    Button bt1 = new Button();
+    ImageView bimage;
     @FXML
-    public void display(ActionEvent e) throws IOException {
-        System.out.print(data.pos);
-        label.setVisible(false);
-        bt1.setVisible(false);
-        Parent f2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f2.fxml")));
-        Scene F2Scene = new Scene(f2);
-        F2Scene.getRoot().requestFocus();
-        FP.currentStage.setScene(F2Scene);
+    ImageView cimage;
+    @FXML
+    Button Confirm = new Button();
+    @FXML
+    Button start = new Button();
+    @FXML
+    Image player1;
+    @FXML
+    Image player2;
+    @FXML
+    Label LABEL1;
+    @FXML
+    Image a =new Image("a.png");
+    @FXML
+    Image b =new Image("b.png");
+    @FXML
+    Image c =new Image("c.png");
+    @FXML
+    Image ar =new Image("ared.png");
+    @FXML
+    Image br =new Image("bred.png");
+    @FXML
+    Image cr =new Image("cred.png");
+    @FXML
+    void a_enter(){
+        wait=0;
+        aimage.setImage(ar);
+    }
+    @FXML
+    void a_exit(){
+        if(wait==0)
+            aimage.setImage(a);
+    }
+    @FXML
+    void b_enter(){
+        wait=0;
+        bimage.setImage(br);
+    }
+    @FXML
+    void b_exit(){
+        if(wait==0)
+            bimage.setImage(b);
+    }
+    @FXML
+    void c_enter(){
+        wait=0;
+        cimage.setImage(cr);
+    }
+    @FXML
+    void c_exit(){
+        if(wait==0)
+            cimage.setImage(c);
+    }
+    @FXML
+    void a_choosed(){
+        aimage.setImage(ar);
+        bimage.setImage(b);
+        cimage.setImage(c);
+        wait=1;
+        LABEL1.setText("Player "+who+" choosed a");
+        switch (who){
+            case 1:
+                player1 = a;
+                break;
+            case 2:
+                player2 = a;
+                break;
+        }
+    }
+    @FXML
+    void b_choosed(){
+        aimage.setImage(a);
+        bimage.setImage(br);
+        cimage.setImage(c);
+        wait=1;
+        LABEL1.setText("Player "+who+" choosed b");
+        switch (who){
+            case 1:
+                player1 = b;
+                break;
+            case 2:
+                player2 = b;
+                break;
+        }
+    }
+    @FXML
+    void c_choosed(){
+        aimage.setImage(a);
+        bimage.setImage(b);
+        cimage.setImage(cr);
+        wait=1;
+        LABEL1.setText("Player "+who+" choosed c");
+        switch (who){
+            case 1:
+                player1 = c;
+                break;
+            case 2:
+                player2 = b;
+                break;
+        }
+    }
+    @FXML
+    void check(){
+        aimage.setImage(a);
+        bimage.setImage(b);
+        cimage.setImage(c);
+        who+=1;
+        LABEL1.setText("Player 2 choose your charastic");
+        Confirm.setVisible(false);start.setVisible(true);
+
+    }
+    @FXML
+    void Start() throws IOException {
+        data.setImage(player1);
+        data2.setImage(player2);
+
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
     }
 
 }

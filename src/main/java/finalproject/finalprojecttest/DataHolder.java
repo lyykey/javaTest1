@@ -4,13 +4,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class DataHolder {
-    ImageView ve = new ImageView();
+
     private static DataHolder dataHolder = new DataHolder();
     private static DataHolder dataHolder2 = new DataHolder();
     private DataHolder(){}
 
     public static DataHolder get(){
         return dataHolder;
+    }
+    public static DataHolder get2(){
+        return dataHolder2;
+    }
+    Image pl;
+    public void setImage(Image v){
+        pl = v;
     }
 
     public int pos;
@@ -41,10 +48,6 @@ public class DataHolder {
 
 
 
-    public Image getImage(ImageView v){
-        Image c = v.getImage();
-        return c;
-    }
     /**
      * getDataHolder1 是用來獲取dataHolder
      * @author 林盈利
@@ -59,19 +62,13 @@ public class DataHolder {
     public DataHolder getDataHolder2(){
         return dataHolder2;
     }
+  
     public boolean changePos(int value){
         if(pos + value > 100 || pos +value < 0)
             return false;
 
         pos+=value;
         return true;
-    }
-    /*
-
-     */
-    public void setImage(String name,ImageView v){
-        Image a = new Image(name);
-        v.setImage(a);
     }
 
 }
