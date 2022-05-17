@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="finalproject.finalprojecttest.F3"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
+    <children>
+        <Pane fx:id="dicePane" layoutY="263.0" prefHeight="134.0" prefWidth="600.0" visible="false">
+            <children>
+                <Label fx:id="label" layoutX="276.0" layoutY="26.0" text="Label" />
+                <Button fx:id="checkButton" layoutX="377.0" layoutY="90.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" text="checkbutton" visible="false" />
+                <Button fx:id="getPlayerChooseWhoButton" layoutX="366.0" layoutY="67.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="getplayerbutton" visible="false" />
+                <RadioButton fx:id="button1" layoutX="159.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="toggleGroup" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="button2" layoutX="260.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup" />
+            </children>
+        </Pane>
+        <Button fx:id="clickButton" layoutX="386.0" layoutY="164.0" mnemonicParsing="false" onAction="#Click" text="Button" />
+    </children>
 </AnchorPane>
