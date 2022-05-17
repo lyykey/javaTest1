@@ -25,6 +25,6 @@
             </image>
         </ImageView>
         <Button fx:id="Confirm" layoutX="273.0" layoutY="353.0" mnemonicParsing="false" onAction="#check" text="Confirm" />
-        <Label fx:id="LABEL1" layoutX="191.0" layoutY="49.0" prefHeight="23.0" prefWidth="241.0" text="Player1 choose your charastic" />
+        <Label fx:id="LABEL1" layoutX="191.0" layoutY="49.0" prefHeight="23.0" prefWidth="241.0" text="Player1 choose your character" />
     </children>
 </AnchorPane>
