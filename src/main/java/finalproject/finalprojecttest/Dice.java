@@ -55,7 +55,6 @@ public class Dice {
             case 2 -> currentPlayerInt = 2;
         }
     }
-    public void test(){}
 
 
 }
