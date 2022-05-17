@@ -145,5 +145,5 @@ public class Controller2 {
         GameScene.getRoot().requestFocus();
         FP.currentStage.setScene(GameScene);
     }
-    void test(){}
+
 }
