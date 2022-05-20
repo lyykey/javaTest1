@@ -1,23 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
+<AnchorPane prefHeight="640.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
-        <Pane fx:id="dicePane" layoutY="263.0" prefHeight="134.0" prefWidth="600.0" visible="false">
+      <ImageView fitHeight="640.0" fitWidth="673.0" layoutX="29.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
+         <image>
+            <Image url="@../../stone-wall-from-bricks-rock-with-old-moss-game-background-cartoon-style_191307-533.png" />
+         </image>
+      </ImageView>
+        <Pane fx:id="dicePane" layoutX="117.0" layoutY="477.0" prefHeight="134.0" prefWidth="600.0" visible="false">
             <children>
                 <Label fx:id="label" layoutX="276.0" layoutY="26.0" text="Label" />
-                <Button fx:id="checkButton" layoutX="377.0" layoutY="90.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" text="checkbutton" visible="false" />
-                <Button fx:id="getPlayerChooseWhoButton" layoutX="366.0" layoutY="67.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="getplayerbutton" visible="false" />
-                <RadioButton fx:id="button1" layoutX="159.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton">
+                <Button fx:id="checkButton" layoutX="377.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="33.0" prefWidth="42.0" text="Ok!" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font></Button>
+                <RadioButton fx:id="button1" layoutX="163.0" layoutY="90.0" mnemonicParsing="false" text="RadioButton">
                     <toggleGroup>
                         <ToggleGroup fx:id="toggleGroup" />
                     </toggleGroup>
+               <font>
+                  <Font name="Comic Sans MS Bold" size="18.0" />
+               </font>
                 </RadioButton>
-                <RadioButton fx:id="button2" layoutX="260.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup" />
+                <RadioButton fx:id="button2" layoutX="304.0" layoutY="90.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="18.0" />
+               </font></RadioButton>
             </children>
         </Pane>
-        <Button fx:id="clickButton" layoutX="386.0" layoutY="164.0" mnemonicParsing="false" onAction="#Click" text="Button" />
+        <Button fx:id="clickButton" layoutX="385.0" layoutY="470.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../png_dice_30474.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <GridPane fx:id="board1" gridLinesVisible="true" layoutX="133.0" layoutY="109.0" prefHeight="158.0" prefWidth="483.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="player1" fitHeight="33.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../Runner_stickman.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane fx:id="board2" gridLinesVisible="true" layoutX="133.0" layoutY="288.0" prefHeight="158.0" prefWidth="483.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ImageView fx:id="player2" fitHeight="33.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../../a.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="108.0" fitWidth="477.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../font2.png" />
+         </image>
+      </ImageView>
+          <Button fx:id="getPlayerChooseWhoButton" layoutX="346.0" layoutY="592.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="Select player" visible="false">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
