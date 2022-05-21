@@ -6,25 +6,25 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1500" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller2">
     <children>
-        <ImageView fx:id="bimage" fitHeight="90.0" fitWidth="94.0" layoutX="255.0" layoutY="146.0" onMouseClicked="#b_choosed" onMouseEntered="#b_enter" onMouseExited="#b_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="bimage" fitHeight="90.0" fitWidth="94.0" layoutX="669.0" layoutY="275.0" onMouseClicked="#b_choosed" onMouseEntered="#b_enter" onMouseExited="#b_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../b.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="cimage" fitHeight="90.0" fitWidth="82.0" layoutX="455.0" layoutY="146.0" onMouseClicked="#c_choosed" onMouseEntered="#c_enter" onMouseExited="#c_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="cimage" fitHeight="90.0" fitWidth="82.0" layoutX="967.0" layoutY="275.0" onMouseClicked="#c_choosed" onMouseEntered="#c_enter" onMouseExited="#c_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../c.png" />
             </image>
         </ImageView>
         <Button fx:id="start" layoutX="274.0" layoutY="353.0" mnemonicParsing="false" onAction="#Start" text="START" visible="false" />
-        <ImageView fx:id="aimage" fitHeight="90.0" fitWidth="82.0" layoutX="91.0" layoutY="136.0" onMouseClicked="#a_choosed" onMouseEntered="#a_enter" onMouseExited="#a_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="aimage" fitHeight="90.0" fitWidth="82.0" layoutX="480.0" layoutY="275.0" onMouseClicked="#a_choosed" onMouseEntered="#a_enter" onMouseExited="#a_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../a.png" />
             </image>
         </ImageView>
-        <Button fx:id="Confirm" layoutX="273.0" layoutY="353.0" mnemonicParsing="false" onAction="#check" text="Confirm" />
-        <Label fx:id="LABEL1" layoutX="191.0" layoutY="49.0" prefHeight="23.0" prefWidth="241.0" text="Player1 choose your charastic" />
+        <Button fx:id="Confirm" layoutX="683.0" layoutY="542.0" mnemonicParsing="false" onAction="#check" text="Confirm" />
+        <Label fx:id="LABEL1" layoutX="629.0" layoutY="79.0" prefHeight="23.0" prefWidth="241.0" text="Player1 choose your charastic" />
     </children>
 </AnchorPane>
