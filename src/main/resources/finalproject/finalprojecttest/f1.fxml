@@ -4,20 +4,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller1">
    <children>
-      <Button ellipsisString="" layoutX="175.0" layoutY="174.0" minHeight="40.0" minWidth="250.0" mnemonicParsing="false" onAction="#display" style="-fx-background-color: pink;" text="2     V.S     2" textAlignment="CENTER" textFill="#df1515" textOverrun="LEADING_WORD_ELLIPSIS">
+      <Button ellipsisString="" layoutX="601.0" layoutY="193.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#display" prefHeight="100.0" style="-fx-background-color: pink;" text="1     V.S     1" textAlignment="CENTER" textFill="#df1515" textOverrun="LEADING_WORD_ELLIPSIS">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="27.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="60.0" />
          </font></Button>
-      <Label fx:id="label" layoutX="88.0" layoutY="61.0" text="Game Start!!!" textFill="#d7d71c">
+      <Label fx:id="label" alignment="CENTER" contentDisplay="TOP" layoutX="503.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" text="Game Start!!!" textFill="#d7d71c">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="70.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="96.0" />
          </font>
       </Label>
-      <Button fx:id="btForOver" layoutX="463.0" layoutY="341.0" mnemonicParsing="false" onAction="#gameOver" style="-fx-background-color: PINK;" text="Exit" textFill="#ff0101">
+      <Button fx:id="btForOver" layoutX="1058.0" layoutY="544.0" mnemonicParsing="false" onAction="#gameOver" prefHeight="77.0" prefWidth="138.0" style="-fx-background-color: PINK;" text="Exit" textFill="#ff0101">
          <font>
-            <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="40.0" />
          </font>
       </Button>
    </children>
