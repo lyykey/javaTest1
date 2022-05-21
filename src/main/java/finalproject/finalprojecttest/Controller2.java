@@ -8,7 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -33,17 +36,17 @@ public class Controller2 {
     @FXML
     Label LABEL1;
     @FXML
-    Image a =new Image("a.png");
+    Image a =new Image("力量人正常.png");
     @FXML
-    Image b =new Image("b.png");
+    Image b =new Image("傑哥正常.png");
     @FXML
-    Image c =new Image("c.png");
+    Image c =new Image("低能兒正常.png");
     @FXML
-    Image ar =new Image("ared.png");
+    Image ar =new Image("力量人大.png");
     @FXML
-    Image br =new Image("bred.png");
+    Image br =new Image("傑哥大.png");
     @FXML
-    Image cr =new Image("cred.png");
+    Image cr =new Image("低能兒大.png");
     @FXML
     void a_enter(){
         if(ac==0)wait=0;
@@ -74,14 +77,16 @@ public class Controller2 {
         if(wait==0&&cc!=1)
             cimage.setImage(c);
     }
+
     @FXML
     void a_choosed(){
+
         aimage.setImage(ar);
         bimage.setImage(b);
         cimage.setImage(c);
         wait=1;
         ac=1;bc=0;cc=0;
-        LABEL1.setText("Player "+who+" choosed a");
+        LABEL1.setText("玩家"+who+"選擇了 力量人");
         switch (who){
             case 1:
                 player1 = a;
@@ -90,6 +95,10 @@ public class Controller2 {
                 player2 = a;
                 break;
         }
+        String sound = "力量人.mp3";
+        Media letterSound = new Media(new File(sound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+        mediaPlayer.play();
     }
     @FXML
     void b_choosed(){
@@ -98,7 +107,7 @@ public class Controller2 {
         cimage.setImage(c);
         ac=0;bc=1;cc=0;
         wait=1;
-        LABEL1.setText("Player "+who+" choosed b");
+        LABEL1.setText("玩家"+who+"選擇了 傑哥");
         switch (who){
             case 1:
                 player1 = b;
@@ -107,6 +116,10 @@ public class Controller2 {
                 player2 = b;
                 break;
         }
+        String sound = "傑哥.mp3";
+        Media letterSound = new Media(new File(sound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+        mediaPlayer.play();
     }
     @FXML
     void c_choosed(){
@@ -115,7 +128,7 @@ public class Controller2 {
         cimage.setImage(cr);
         wait=1;
         ac=0;bc=0;cc=1;
-        LABEL1.setText("Player "+who+" choosed c");
+        LABEL1.setText("玩家"+who+"選擇了 低能兒");
         switch (who){
             case 1:
                 player1 = c;
@@ -124,6 +137,10 @@ public class Controller2 {
                 player2 = b;
                 break;
         }
+        String sound = "低能兒.mp3";
+        Media letterSound = new Media(new File(sound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+        mediaPlayer.play();
     }
     @FXML
     void check(){
@@ -131,7 +148,7 @@ public class Controller2 {
         bimage.setImage(b);
         cimage.setImage(c);
         who+=1;
-        LABEL1.setText("Player 2 choose your charastic");
+        LABEL1.setText("玩家二請選擇角色");
         Confirm.setVisible(false);start.setVisible(true);
 
     }
@@ -145,5 +162,4 @@ public class Controller2 {
         GameScene.getRoot().requestFocus();
         FP.currentStage.setScene(GameScene);
     }
-    void test(){}
 }
