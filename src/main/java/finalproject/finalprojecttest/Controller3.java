@@ -5,6 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -15,7 +18,9 @@ import javafx.scene.layout.Pane;
  */
 public class Controller3 {
     DataHolder data = DataHolder.get();
+    DataHolder data2 = DataHolder.get2();
     Dice dice = new Dice();
+    int thePlayerBeSelect = 0;
     /**
      * 用來收集RadioButton
      * 可使用迴圈顯示或隱藏RadioButton*/
@@ -75,6 +80,7 @@ public class Controller3 {
         else DataHolder.currentPlayer = 1;
     }
     /**當玩家需要選擇其他玩家移動時會執行*/
+    /**秉均加一些東西*/
     @FXML
     public void getPlayerChooseWhoButtonOnPressed(){
         for (int i = 0; i < 2; i++){ //讓選擇框隱藏
@@ -82,7 +88,7 @@ public class Controller3 {
         }
         getPlayerChooseWhoButton.setVisible(false);
         checkButton.setVisible(true);
-        int thePlayerBeSelect = 0;
+        thePlayerBeSelect = 0;
         if (toggleGroup.getSelectedToggle() != null) {
             String temp = toggleGroup.getSelectedToggle().getUserData().toString();
             thePlayerBeSelect = Integer.parseInt(temp);
@@ -90,12 +96,16 @@ public class Controller3 {
         else label.setText("please select");
         switch (dice.diceValueForAction) {
             case 2 -> {
-                label.setText(dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
+                label.setText(dice.playerName[thePlayerBeSelect-1]+"前進了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, dice.diceValueForSteps);
+                if(thePlayerBeSelect == 1){advancePlayer1(dice.diceValueForSteps);}
+                else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 3 -> {
                 label.setText(dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, -dice.diceValueForSteps);
+                if(thePlayerBeSelect == 1){retreatPlayer1(dice.diceValueForSteps);}
+                else{retreatPlayer2(dice.diceValueForSteps);}
             }
         }
 
@@ -111,11 +121,15 @@ public class Controller3 {
                 label.setText("你骰到 1 ，並前進了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(dice.currentPlayerInt, dice.diceValueForSteps);
                 checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1) {advancePlayer1(dice.diceValueForSteps);}
+                else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 1 -> { // 自己後退
                 label.setText("你骰到 2 ，並後退了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(dice.currentPlayerInt, -dice.diceValueForSteps);
                 checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1) {retreatPlayer1(dice.diceValueForSteps);}
+                else{retreatPlayer2(dice.diceValueForSteps);}
             }
             case 2 -> { //別人前進
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
@@ -124,7 +138,8 @@ public class Controller3 {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
-
+                //if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
+                //else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 3 -> { //別人後退
                 label.setText("你骰到 4 ，請選擇要讓哪位玩家後退"+dice.diceValueForSteps+"步");
@@ -132,10 +147,106 @@ public class Controller3 {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
+                // if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
+                //else{retreatPlayer2(dice.diceValueForSteps);}
 
             }
             default -> System.out.println("rollDice 骰出值超過了");
 
         }
     }
+
+
+    /** @author 鍾秉均 */
+
+    @FXML
+    ImageView player1 = new ImageView(data.pl);
+    @FXML
+    ImageView player2= new ImageView(data2.pl);
+    @FXML
+    GridPane board1;
+    @FXML
+    GridPane board2;
+
+    int rowPlayer1;
+    int columnPlayer1;
+    int rowPlayer2;
+    int columnPlayer2;
+
+
+    void advancePlayer1(int steps)
+    {
+        columnPlayer1 += steps;
+        if(columnPlayer1 > 9)
+        {
+            rowPlayer1++;
+            columnPlayer1 -= 9;
+        }
+        GridPane.setRowIndex(player1, rowPlayer1);
+        GridPane.setColumnIndex(player1, columnPlayer1);
+    }
+    void retreatPlayer1(int steps)
+    {
+        columnPlayer1 -= steps;
+
+        if(rowPlayer1 == 0 && columnPlayer1 < 0)
+        {
+            columnPlayer1 = 0;
+            GridPane.setColumnIndex(player1, 0);
+        }
+        else if(columnPlayer1 < 0)
+        {
+            rowPlayer1--;
+            columnPlayer1 += 9;
+        }
+        if(rowPlayer1 < 0 )
+        {
+            rowPlayer1 = 0;
+            columnPlayer1 = 0;
+            GridPane.setRowIndex(player1, 0);
+            GridPane.setColumnIndex(player1, 0);
+        }
+        else
+        {
+            GridPane.setRowIndex(player1, rowPlayer1);
+            GridPane.setColumnIndex(player1, columnPlayer1);
+        }
+    }
+    void advancePlayer2(int steps)
+    {
+        columnPlayer2 += steps;
+        if(columnPlayer2 > 9)
+        {
+            rowPlayer2++;
+            columnPlayer2 -= 9;
+        }
+        GridPane.setRowIndex(player2, rowPlayer2);
+        GridPane.setColumnIndex(player2, columnPlayer2);
+    }
+    void retreatPlayer2(int steps)
+    {
+        columnPlayer2 -= steps;
+        if(rowPlayer2 == 0 && columnPlayer2 < 0)
+        {
+            columnPlayer2 = 0;
+            GridPane.setColumnIndex(player2, 0);
+        }
+        else if(columnPlayer2 < 0)
+        {
+            rowPlayer2--;
+            columnPlayer2 += 9;
+        }
+        if(rowPlayer2 < 0 )
+        {
+            rowPlayer2 = 0;
+            GridPane.setRowIndex(player2, 0);
+            GridPane.setColumnIndex(player2, 0);
+        }
+        else
+        {
+            GridPane.setRowIndex(player2, rowPlayer2);
+            GridPane.setColumnIndex(player2, columnPlayer2);
+        }
+    }
+
 }

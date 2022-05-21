@@ -137,8 +137,8 @@ public class Controller2 {
     }
     @FXML
     void Start() throws IOException {
-        data.setImage(player1);
-        data2.setImage(player2);
+        data.setimage(player1);
+        data2.setimage(player2);
 
         Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
         Scene GameScene = new Scene(Game);
