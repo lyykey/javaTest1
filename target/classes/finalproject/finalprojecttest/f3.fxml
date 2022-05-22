@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="640.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
@@ -19,17 +20,25 @@
             <Image url="@../../stone-wall-from-bricks-rock-with-old-moss-game-background-cartoon-style_191307-533.png" />
          </image>
       </ImageView>
-        <Pane fx:id="dicePane" layoutX="117.0" layoutY="483.0" prefHeight="134.0" prefWidth="600.0" visible="false">
+        <Pane fx:id="dicePane" layoutX="117.0" layoutY="477.0" prefHeight="134.0" prefWidth="600.0" visible="false">
             <children>
                 <Label fx:id="label" layoutX="276.0" layoutY="26.0" text="Label" />
-                <Button fx:id="checkButton" layoutX="377.0" layoutY="90.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" text="Ok!" visible="false" />
-                <Button fx:id="getPlayerChooseWhoButton" layoutX="366.0" layoutY="67.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="Select player" visible="false" />
-                <RadioButton fx:id="button1" layoutX="159.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton">
+                <Button fx:id="checkButton" layoutX="377.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="33.0" prefWidth="42.0" text="Ok!" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font></Button>
+                <RadioButton fx:id="button1" layoutX="163.0" layoutY="90.0" mnemonicParsing="false" text="RadioButton">
                     <toggleGroup>
                         <ToggleGroup fx:id="toggleGroup" />
                     </toggleGroup>
+               <font>
+                  <Font name="Comic Sans MS Bold" size="18.0" />
+               </font>
                 </RadioButton>
-                <RadioButton fx:id="button2" layoutX="260.0" layoutY="71.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup" />
+                <RadioButton fx:id="button2" layoutX="304.0" layoutY="90.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="18.0" />
+               </font></RadioButton>
             </children>
         </Pane>
         <Button fx:id="clickButton" layoutX="385.0" layoutY="470.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
@@ -101,5 +110,10 @@
             <Image url="@../../font2.png" />
          </image>
       </ImageView>
+          <Button fx:id="getPlayerChooseWhoButton" layoutX="346.0" layoutY="592.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="Select player" visible="false">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
