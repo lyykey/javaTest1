@@ -15,11 +15,13 @@ public class DataHolder {
     public static DataHolder get2(){
         return dataHolder2;
     }
-    Image pl;
-    public void setImage(Image v){
+    Image pl ;
+    public void setimage(Image v){
         pl = v;
     }
-
+//    public Image getimage(){
+//        return pl;
+//    }
     public int pos;
     public int selectIndex;
     /**
