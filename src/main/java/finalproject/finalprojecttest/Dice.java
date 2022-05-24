@@ -5,6 +5,7 @@ public class Dice {
     public int diceValueForAction=0; //骰出來的值
     public int diceValueForSteps = 0;
     public int currentPlayerInt = 1;
+    public int balanceCheckPoint = 30; //between 0 ~ 99. The higher value, the higher the probability of moving backward.
     public String[] playerName = {"玩家一","玩家二","玩家三","玩家四"};
 
 
@@ -43,8 +44,25 @@ public class Dice {
      * 用來擲動作 步數
      * */
     public void rollDice(){
-        diceValueForAction= (int)(Math.random()*4); // 骰作何種動作
-        diceValueForSteps = (int)(Math.random()*4); // 骰走幾步
+        int action = (int)(Math.random()*100), steps = (int)(Math.random()*4);
+        steps = (steps == 0)? 4 : steps;
+        if (action >= balanceCheckPoint) { //大於等於CheckPoint 則骰到前進相關動作
+            if (Math.random()*2 >=1) { //這裡的1可以用來調整骰到別人或自己移動的機率
+                action = 0;
+            }else action = 2;
+        }
+        else {
+            if(Math.random()*2 >=1) { //小於CheckPoint 則骰到後退相關動作
+                action = 1;
+            }else action = 3;
+        }
+        if (data.getDataHolder1().pos == 0 ||data.getDataHolder2().pos == 0) {
+            if (action ==1 || action == 3) {
+                action = 0;
+            }
+        }
+        diceValueForAction=  action;// 骰作何種動作
+        diceValueForSteps = steps; // 骰走幾步
     }
     /**
      * 用來設定現在是誰在骰*/

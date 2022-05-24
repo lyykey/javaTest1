@@ -9,6 +9,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  遊戲畫面:
  1.地圖
@@ -18,7 +24,10 @@ import javafx.scene.layout.Pane;
 public class Controller3 {
     DataHolder data = DataHolder.get();
     Dice dice = new Dice();
-    int thePlayerBeSelect = 0;
+    int thePlayerBeSelect = 0, forwardEventSize, backwardEventSize;
+    boolean initial = true;
+    ArrayList<String> forwardEventArrayList = new ArrayList<>();
+    ArrayList<String> backwardEventArrayList = new ArrayList<>();
     /**
      * 用來收集RadioButton
      * 可使用迴圈顯示或隱藏RadioButton*/
@@ -47,9 +56,38 @@ public class Controller3 {
     /**擲骰按鈕*/
     @FXML
     Button clickButton;
+
+    /**
+     * 建構元
+     * 用來初始化前進/後退事件的ArrayList
+     * @author 林盈利
+     */
+    public void setEventList(){
+        try {
+            FileReader fileReaderForward = new FileReader("前進事件.txt");
+            FileReader fileReaderBackward = new FileReader("後退事件.txt");
+            BufferedReader BRForward = new BufferedReader(fileReaderForward);
+            BufferedReader BRBackward = new BufferedReader(fileReaderBackward);
+            String line;
+            while ((line = BRForward.readLine()) != null) {
+                forwardEventArrayList.add(line);
+            }
+            while ((line = BRBackward.readLine()) != null) {
+                backwardEventArrayList.add(line);
+            }
+            forwardEventSize = forwardEventArrayList.size();
+            backwardEventSize = backwardEventArrayList.size();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * 當擲骰被點擊時執行*/
     public void Click() {
+        if (initial) {
+            setEventList();
+            initial = false;
+        }
         buttonList = new RadioButton[]{button1, button2};
         clickButton.setVisible(false);
         button1.setVisible(false);
@@ -92,15 +130,18 @@ public class Controller3 {
             thePlayerBeSelect = Integer.parseInt(temp);
         }
         else label.setText("please select");
+        String event;
         switch (dice.diceValueForAction) {
             case 2 -> {
-                label.setText(dice.playerName[thePlayerBeSelect-1]+"前進了"+dice.diceValueForSteps+"步");
+                event = forwardEventArrayList.get((int) (Math.random()*forwardEventSize));
+                label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"前進了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, dice.diceValueForSteps);
                 if(thePlayerBeSelect == 1){advancePlayer1(dice.diceValueForSteps);}
                 else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 3 -> {
-                label.setText(dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
+                event = backwardEventArrayList.get((int) (Math.random()*backwardEventSize));
+                label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, -dice.diceValueForSteps);
                 if(thePlayerBeSelect == 1){retreatPlayer1(dice.diceValueForSteps);}
                 else{retreatPlayer2(dice.diceValueForSteps);}
@@ -114,16 +155,19 @@ public class Controller3 {
     public void diceOutput(){ //呼叫此函式時，
         setButtonName();
         dice.rollDice();
+        String event;
         switch (dice.diceValueForAction) { // 要輸出誰移動、移動幾步，要顯示label、選擇
             case 0 -> { // 自己前進
-                label.setText("你骰到 1 ，並前進了"+dice.diceValueForSteps+"步");
+                event = forwardEventArrayList.get((int) (Math.random() * forwardEventSize));
+                label.setText(event + "。 所以你前進了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(dice.currentPlayerInt, dice.diceValueForSteps);
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1) {advancePlayer1(dice.diceValueForSteps);}
                 else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 1 -> { // 自己後退
-                label.setText("你骰到 2 ，並後退了"+dice.diceValueForSteps+"步");
+                event = backwardEventArrayList.get((int) (Math.random()*backwardEventSize));
+                label.setText(event + "。 所以你後退了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(dice.currentPlayerInt, -dice.diceValueForSteps);
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1) {retreatPlayer1(dice.diceValueForSteps);}
@@ -131,7 +175,7 @@ public class Controller3 {
             }
             case 2 -> { //別人前進
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
-                label.setText("你骰到 3 ，請選擇要讓哪位玩家前進"+dice.diceValueForSteps+"步");
+                label.setText("看來幸運並不在你身上發生，但你有賦予的權利。請選擇要讓哪位玩家前進");
                 for (int i = 0; i < 2; i++){
                     buttonList[i].setVisible(true);
                 }
@@ -140,7 +184,7 @@ public class Controller3 {
                 //else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 3 -> { //別人後退
-                label.setText("你骰到 4 ，請選擇要讓哪位玩家後退"+dice.diceValueForSteps+"步");
+                label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
                 for (int i = 0; i < 2; i++){
                     buttonList[i].setVisible(true);
                 }
