@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1500" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller2">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1500" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller2">
     <children>
         <ImageView fx:id="bimage" fitHeight="90.0" fitWidth="94.0" layoutX="669.0" layoutY="275.0" onMouseClicked="#b_choosed" onMouseEntered="#b_enter" onMouseExited="#b_exit" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -16,13 +19,22 @@
                 <Image url="@../../低能兒正常.png" />
             </image>
         </ImageView>
-        <Button fx:id="start" layoutX="274.0" layoutY="353.0" mnemonicParsing="false" onAction="#Start" text="START" visible="false" />
+        <Button fx:id="start" layoutX="683.0" layoutY="542.0" mnemonicParsing="false" onAction="#Start" prefHeight="34.0" prefWidth="53.0" text="開始" textFill="#4813d9" visible="false">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
         <ImageView fx:id="aimage" fitHeight="90.0" fitWidth="82.0" layoutX="480.0" layoutY="275.0" onMouseClicked="#a_choosed" onMouseEntered="#a_enter" onMouseExited="#a_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../力量人正常.png" />
             </image>
         </ImageView>
-        <Button fx:id="Confirm" layoutX="683.0" layoutY="542.0" mnemonicParsing="false" onAction="#check" text="Confirm" />
-        <Label fx:id="LABEL1" layoutX="629.0" layoutY="79.0" prefHeight="23.0" prefWidth="241.0" text="玩家一請選擇角色" />
+        <Button fx:id="Confirm" layoutX="683.0" layoutY="542.0" mnemonicParsing="false" onAction="#check" text="確認" textFill="#380dd1">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+        <Label fx:id="LABEL1" layoutX="629.0" layoutY="79.0" prefHeight="27.0" prefWidth="313.0" text="玩家一請選擇角色" textFill="#d007e7">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
     </children>
 </AnchorPane>
