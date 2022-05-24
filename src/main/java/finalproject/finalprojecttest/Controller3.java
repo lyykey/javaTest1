@@ -184,8 +184,8 @@ public class Controller3 implements Initializable {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
-                //if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
-                //else{advancePlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
+                else{advancePlayer2(dice.diceValueForSteps);}
             }
             case 3 -> { //別人後退
                 label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
@@ -193,8 +193,8 @@ public class Controller3 implements Initializable {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
-                // if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
-                //else{retreatPlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
+                else{retreatPlayer2(dice.diceValueForSteps);}
 
             }
             default -> System.out.println("rollDice 骰出值超過了");
@@ -222,76 +222,22 @@ public class Controller3 implements Initializable {
     void advancePlayer1(int steps)
     {
         columnPlayer1 += steps;
-        if(columnPlayer1 > 9)
-        {
-            rowPlayer1++;
-            columnPlayer1 -= 9;
-        }
-        GridPane.setRowIndex(player1, rowPlayer1);
         GridPane.setColumnIndex(player1, columnPlayer1);
     }
     void retreatPlayer1(int steps)
     {
         columnPlayer1 -= steps;
-
-        if(rowPlayer1 == 0 && columnPlayer1 < 0)
-        {
-            columnPlayer1 = 0;
-            GridPane.setColumnIndex(player1, 0);
-        }
-        else if(columnPlayer1 < 0)
-        {
-            rowPlayer1--;
-            columnPlayer1 += 9;
-        }
-        if(rowPlayer1 < 0 )
-        {
-            rowPlayer1 = 0;
-            columnPlayer1 = 0;
-            GridPane.setRowIndex(player1, 0);
-            GridPane.setColumnIndex(player1, 0);
-        }
-        else
-        {
-            GridPane.setRowIndex(player1, rowPlayer1);
-            GridPane.setColumnIndex(player1, columnPlayer1);
-        }
+        GridPane.setColumnIndex(player1, columnPlayer1);
     }
     void advancePlayer2(int steps)
     {
         columnPlayer2 += steps;
-        if(columnPlayer2 > 9)
-        {
-            rowPlayer2++;
-            columnPlayer2 -= 9;
-        }
-        GridPane.setRowIndex(player2, rowPlayer2);
         GridPane.setColumnIndex(player2, columnPlayer2);
     }
     void retreatPlayer2(int steps)
     {
         columnPlayer2 -= steps;
-        if(rowPlayer2 == 0 && columnPlayer2 < 0)
-        {
-            columnPlayer2 = 0;
-            GridPane.setColumnIndex(player2, 0);
-        }
-        else if(columnPlayer2 < 0)
-        {
-            rowPlayer2--;
-            columnPlayer2 += 9;
-        }
-        if(rowPlayer2 < 0 )
-        {
-            rowPlayer2 = 0;
-            GridPane.setRowIndex(player2, 0);
-            GridPane.setColumnIndex(player2, 0);
-        }
-        else
-        {
-            GridPane.setRowIndex(player2, rowPlayer2);
-            GridPane.setColumnIndex(player2, columnPlayer2);
-        }
+        GridPane.setColumnIndex(player2, columnPlayer2);
     }
     @Override
     public void initialize(URL x, ResourceBundle rb)
