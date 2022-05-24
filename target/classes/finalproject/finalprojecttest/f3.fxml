@@ -13,17 +13,22 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
+<AnchorPane prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
-      <ImageView fitHeight="640.0" fitWidth="673.0" layoutX="29.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
+      <ImageView fitHeight="750.0" fitWidth="753.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../stone-wall-from-bricks-rock-with-old-moss-game-background-cartoon-style_191307-533.png" />
          </image>
       </ImageView>
-        <Pane fx:id="dicePane" layoutX="117.0" layoutY="477.0" prefHeight="134.0" prefWidth="600.0" visible="false">
+      <ImageView fitHeight="750.0" fitWidth="750.0" layoutX="825.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
+         <image>
+            <Image url="@../../stone-wall-from-bricks-rock-with-old-moss-game-background-cartoon-style_191307-533.png" />
+         </image>
+      </ImageView>
+        <Pane fx:id="dicePane" layoutX="488.0" layoutY="497.0" prefHeight="134.0" prefWidth="600.0" visible="false">
             <children>
                 <Label fx:id="label" layoutX="276.0" layoutY="26.0" text="Label" />
-                <Button fx:id="checkButton" layoutX="377.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="33.0" prefWidth="42.0" text="Ok!" visible="false">
+                <Button fx:id="checkButton" layoutX="377.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="38.0" prefWidth="101.0" text="Ok!" visible="false">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font></Button>
@@ -41,7 +46,7 @@
                </font></RadioButton>
             </children>
         </Pane>
-        <Button fx:id="clickButton" layoutX="385.0" layoutY="470.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
+        <Button fx:id="clickButton" layoutX="756.0" layoutY="490.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -49,7 +54,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <GridPane fx:id="board1" gridLinesVisible="true" layoutX="133.0" layoutY="109.0" prefHeight="158.0" prefWidth="483.0">
+      <GridPane fx:id="board1" gridLinesVisible="true" layoutX="504.0" layoutY="129.0" prefHeight="158.0" prefWidth="483.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -77,7 +82,7 @@
             </ImageView>
          </children>
       </GridPane>
-      <GridPane fx:id="board2" gridLinesVisible="true" layoutX="133.0" layoutY="288.0" prefHeight="158.0" prefWidth="483.0">
+      <GridPane fx:id="board2" gridLinesVisible="true" layoutX="504.0" layoutY="308.0" prefHeight="158.0" prefWidth="483.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -105,12 +110,12 @@
             </ImageView>
          </children>
       </GridPane>
-      <ImageView fitHeight="108.0" fitWidth="477.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="477.0" layoutX="521.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../font2.png" />
          </image>
       </ImageView>
-          <Button fx:id="getPlayerChooseWhoButton" layoutX="346.0" layoutY="592.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="Select player" visible="false">
+          <Button fx:id="getPlayerChooseWhoButton" layoutX="717.0" layoutY="612.0" mnemonicParsing="false" onAction="#getPlayerChooseWhoButtonOnPressed" text="Select player" visible="false">
          <font>
             <Font name="Comic Sans MS" size="18.0" />
          </font>

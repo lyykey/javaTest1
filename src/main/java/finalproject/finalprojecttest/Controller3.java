@@ -1,6 +1,7 @@
 package finalproject.finalprojecttest;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -13,7 +14,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  遊戲畫面:
@@ -21,8 +24,9 @@ import java.util.ArrayList;
  2.LABEL顯示狀態
  3.Dice
  */
-public class Controller3 {
+public class Controller3 implements Initializable {
     DataHolder data = DataHolder.get();
+    DataHolder data2 = DataHolder.get2();
     Dice dice = new Dice();
     int thePlayerBeSelect = 0, forwardEventSize, backwardEventSize;
     boolean initial = true;
@@ -288,6 +292,12 @@ public class Controller3 {
             GridPane.setRowIndex(player2, rowPlayer2);
             GridPane.setColumnIndex(player2, columnPlayer2);
         }
+    }
+    @Override
+    public void initialize(URL x, ResourceBundle rb)
+    {
+        player1.setImage(data.pl);
+        player2.setImage(data2.pl);
     }
     
 }
