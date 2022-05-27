@@ -115,6 +115,14 @@ public class Controller3 implements Initializable {
         checkButton.setVisible(false);
         dicePane.setVisible(false);
         clickButton.setVisible(true);
+        /**if(pos==遊戲格){
+         * 就轉到game1、2、3
+         *         Parent f4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game1.fxml")));
+         *         Scene F4Scene = new Scene(f4);
+         *         F4Scene.getRoot().requestFocus();
+         *         FP.currentStage.setScene(F4Scene);
+         * }
+         * */
         /*這裡會跟最大玩家數有關*/
         if(DataHolder.currentPlayer !=2) DataHolder.currentPlayer++;
         else DataHolder.currentPlayer = 1;
@@ -123,7 +131,7 @@ public class Controller3 implements Initializable {
     /**秉均加一些東西*/
     @FXML
     public void getPlayerChooseWhoButtonOnPressed(){
-        for (int i = 0; i < 2; i++){ //讓選擇框隱藏
+        for (int i = 0; i < 1; i++){ //讓選擇框隱藏
             buttonList[i].setVisible(false);
         }
         getPlayerChooseWhoButton.setVisible(false);
@@ -180,7 +188,7 @@ public class Controller3 implements Initializable {
             case 2 -> { //別人前進
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
                 label.setText("看來幸運並不在你身上發生，但你有賦予的權利。請選擇要讓哪位玩家前進");
-                for (int i = 0; i < 2; i++){
+                for (int i = 0; i < 1; i++){
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
@@ -189,7 +197,7 @@ public class Controller3 implements Initializable {
             }
             case 3 -> { //別人後退
                 label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
-                for (int i = 0; i < 2; i++){
+                for (int i = 0; i < 1; i++){
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);

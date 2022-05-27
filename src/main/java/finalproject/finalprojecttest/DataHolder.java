@@ -22,6 +22,7 @@ public class DataHolder {
 //    public Image getimage(){
 //        return pl;
 //    }
+
     public int pos;
     public int selectIndex;
     /**
@@ -65,13 +66,16 @@ public class DataHolder {
         return dataHolder2;
     }
   
-    public boolean changePos(int value){
-        if(pos + value > 100 || pos +value < 0)
-            return false;
+//    public boolean changePos(int value){
+//        if(pos + value > 100 || pos +value < 0)
+//            return false;
+//
+//        pos+=value;
+//        return true;
+//    }
+     public static int whoWin = 0;
+    public int getWhoWin() { return whoWin; }
 
-        pos+=value;
-        return true;
-    }
 
 }
 

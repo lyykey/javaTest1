@@ -96,9 +96,9 @@ public class Controller2 {
                 break;
         }
         String sound = "力量人.mp3";
-        //Media letterSound = new Media(new File(sound).toURI().toString());
-        //MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
-        //mediaPlayer.play();
+        Media letterSound = new Media(new File(sound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+        mediaPlayer.play();
     }
     @FXML
     void b_choosed(){
@@ -117,9 +117,9 @@ public class Controller2 {
                 break;
         }
         String sound = "傑哥.mp3";
-        //Media letterSound = new Media(new File(sound).toURI().toString());
-        //MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
-        //mediaPlayer.play();
+        Media letterSound = new Media(new File(sound).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+        mediaPlayer.play();
     }
     @FXML
     void c_choosed(){
