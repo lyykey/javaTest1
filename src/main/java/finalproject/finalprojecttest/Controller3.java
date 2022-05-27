@@ -32,7 +32,8 @@ public class Controller3 implements Initializable {
     static DataHolder data = DataHolder.get();
     static DataHolder data2 = DataHolder.get2();
     Dice dice = new Dice();
-    int thePlayerBeSelect = 0, forwardEventSize, backwardEventSize;
+    static int thePlayerBeSelect = 0;
+    int forwardEventSize, backwardEventSize;
     boolean initial = true;
     ArrayList<String> forwardEventArrayList = new ArrayList<>();
     ArrayList<String> backwardEventArrayList = new ArrayList<>();
