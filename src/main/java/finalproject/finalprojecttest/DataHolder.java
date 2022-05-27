@@ -1,7 +1,6 @@
 package finalproject.finalprojecttest;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class DataHolder {
 
@@ -75,7 +74,24 @@ public class DataHolder {
 //    }
      public static int whoWin = 0;
     public int getWhoWin() { return whoWin; }
+    public void setWhoWin(int player){whoWin = player;}
+    public static int posPlayer = 0;
+    public static int posPlayer2 = 0;
 
+    public int getPosPlayer() {
+        return posPlayer;
+    }
 
-}
+    public void setPosPlayer(int posPlayer1) {
+        posPlayer = posPlayer1;
+    }
+    public int getPosPlayer2() {
+        return posPlayer2;
+    }
+
+    public void setPosPlayer2(int posPlayer2) {
+        DataHolder.posPlayer2 = posPlayer2;
+    }
+    }
+
 
