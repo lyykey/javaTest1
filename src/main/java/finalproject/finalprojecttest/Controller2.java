@@ -154,9 +154,10 @@ public class Controller2 {
     }
     @FXML
     void Start() throws IOException {
+        Controller3.data.setPosPlayer(0);
+        Controller3.data2.setPosPlayer2(0);
         data.setimage(player1);
         data2.setimage(player2);
-
         Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
         Scene GameScene = new Scene(Game);
         GameScene.getRoot().requestFocus();

@@ -1,7 +1,10 @@
 package finalproject.finalprojecttest;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -16,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -25,10 +29,11 @@ import java.util.ResourceBundle;
  3.Dice
  */
 public class Controller3 implements Initializable {
-    DataHolder data = DataHolder.get();
-    DataHolder data2 = DataHolder.get2();
+    static DataHolder data = DataHolder.get();
+    static DataHolder data2 = DataHolder.get2();
     Dice dice = new Dice();
-    int thePlayerBeSelect = 0, forwardEventSize, backwardEventSize;
+    static int thePlayerBeSelect = 0;
+    int forwardEventSize, backwardEventSize;
     boolean initial = true;
     ArrayList<String> forwardEventArrayList = new ArrayList<>();
     ArrayList<String> backwardEventArrayList = new ArrayList<>();
@@ -222,36 +227,56 @@ public class Controller3 implements Initializable {
     GridPane board2;
 
     int rowPlayer1;
-    int columnPlayer1;
+    int columnPlayer1 = data.getPosPlayer();
     int rowPlayer2;
-    int columnPlayer2;
+    int columnPlayer2 = data2.getPosPlayer2();
 
 
     void advancePlayer1(int steps)
     {
         columnPlayer1 += steps;
         GridPane.setColumnIndex(player1, columnPlayer1);
+        data.setPosPlayer(columnPlayer1);
     }
     void retreatPlayer1(int steps)
     {
         columnPlayer1 -= steps;
         GridPane.setColumnIndex(player1, columnPlayer1);
+        data.setPosPlayer(columnPlayer1);
     }
     void advancePlayer2(int steps)
     {
         columnPlayer2 += steps;
         GridPane.setColumnIndex(player2, columnPlayer2);
+        data2.setPosPlayer2(columnPlayer2);
     }
     void retreatPlayer2(int steps)
     {
         columnPlayer2 -= steps;
         GridPane.setColumnIndex(player2, columnPlayer2);
+        data2.setPosPlayer2(columnPlayer2);
     }
     @Override
     public void initialize(URL x, ResourceBundle rb)
     {
         player1.setImage(data.pl);
         player2.setImage(data2.pl);
+        if(data.getWhoWin() == 1) {data.setPosPlayer(data.getPosPlayer() + 2);}
+        else if(data.getWhoWin() == 2){data2.setPosPlayer2(data2.getPosPlayer2() + 2);}
+        GridPane.setColumnIndex(player1, data.getPosPlayer());
+        GridPane.setColumnIndex(player2, data2.getPosPlayer2());
+        columnPlayer1 = data.getPosPlayer();
+        columnPlayer2 = data2.getPosPlayer2();
+    }
+
+    @FXML
+    void Start() throws IOException {
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game1.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
     }
     
 }
