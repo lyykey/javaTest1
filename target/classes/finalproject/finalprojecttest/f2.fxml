@@ -9,12 +9,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1500" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller2">
     <children>
-        <ImageView fx:id="bimage" fitHeight="90.0" fitWidth="94.0" layoutX="669.0" layoutY="275.0" onMouseClicked="#b_choosed" onMouseEntered="#b_enter" onMouseExited="#b_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="bimage" fitHeight="90.0" fitWidth="94.0" layoutX="497.0" layoutY="272.0" onMouseClicked="#b_choosed" onMouseEntered="#b_enter" onMouseExited="#b_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../傑哥正常.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="cimage" fitHeight="90.0" fitWidth="109.0" layoutX="840.0" layoutY="275.0" onMouseClicked="#c_choosed" onMouseEntered="#c_enter" onMouseExited="#c_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="cimage" fitHeight="90.0" fitWidth="109.0" layoutX="655.0" layoutY="275.0" onMouseClicked="#c_choosed" onMouseEntered="#c_enter" onMouseExited="#c_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../低能兒正常.png" />
             </image>
@@ -23,7 +23,7 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
-        <ImageView fx:id="aimage" fitHeight="90.0" fitWidth="82.0" layoutX="480.0" layoutY="275.0" onMouseClicked="#a_choosed" onMouseEntered="#a_enter" onMouseExited="#a_exit" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="aimage" fitHeight="90.0" fitWidth="82.0" layoutX="343.0" layoutY="275.0" onMouseClicked="#a_choosed" onMouseEntered="#a_enter" onMouseExited="#a_exit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../力量人正常.png" />
             </image>
@@ -32,9 +32,24 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
-        <Label fx:id="LABEL1" layoutX="629.0" layoutY="79.0" prefHeight="27.0" prefWidth="313.0" text="玩家一請選擇角色" textFill="#d007e7">
+        <Label fx:id="LABEL1" layoutX="596.0" layoutY="80.0" prefHeight="74.0" prefWidth="353.0" text="玩家一請選擇角色" textFill="#d007e7">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="33.0" />
          </font></Label>
+      <ImageView fx:id="dimage" fitHeight="90.0" fitWidth="82.0" layoutX="836.0" layoutY="272.0" onMouseClicked="#d_choosed" onMouseEntered="#d_enter" onMouseExited="#d_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../妹子正常.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="eimage" fitHeight="90.0" fitWidth="109.0" layoutX="950.0" layoutY="272.0" onMouseClicked="#e_choosed" onMouseEntered="#e_enter" onMouseExited="#e_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../真香.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fimage" fitHeight="90.0" fitWidth="96.0" layoutX="329.0" layoutY="399.0" onMouseClicked="#f_choosed" onMouseEntered="#f_enter" onMouseExited="#f_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="gimage" fitHeight="83.0" fitWidth="96.0" layoutX="488.0" layoutY="412.0" onMouseClicked="#g_choosed" onMouseEntered="#g_enter" onMouseExited="#g_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="himage" fitHeight="83.0" fitWidth="109.0" layoutX="655.0" layoutY="402.0" onMouseClicked="#h_choosed" onMouseEntered="#h_enter" onMouseExited="#h_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="iimage" fitHeight="83.0" fitWidth="96.0" layoutX="813.0" layoutY="402.0" onMouseClicked="#i_choosed" onMouseEntered="#i_enter" onMouseExited="#i_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="jimage" fitHeight="90.0" fitWidth="109.0" layoutX="943.0" layoutY="399.0" onMouseClicked="#j_choosed" onMouseEntered="#j_enter" onMouseExited="#j_exit" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
