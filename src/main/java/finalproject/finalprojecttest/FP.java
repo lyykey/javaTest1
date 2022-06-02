@@ -29,11 +29,7 @@ public class FP extends Application {
 
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f1.fxml")));
-        String sound = "太陽.mp3";
-        Media letterSound = new Media(new File(sound).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+
         F1Scene = new Scene(root);
         currentStage.setTitle("我一定要贏");
         currentStage.setScene(F1Scene);
