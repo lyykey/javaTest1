@@ -66,6 +66,8 @@ public class Controller3 implements Initializable {
     @FXML
     Button clickButton;
 
+    public static Scene game3Scene;
+
     /**
      * 建構元
      * 用來初始化前進/後退事件的ArrayList
@@ -213,6 +215,13 @@ public class Controller3 implements Initializable {
             default -> System.out.println("rollDice 骰出值超過了");
 
         }
+    }
+    @FXML
+    public void game2Button() throws IOException {
+        FXMLLoader game2FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game2.fxml"));
+        game3Scene = new Scene(game2FxmlLoader.load());
+        FP.currentStage.setScene(game3Scene);
+        FP.currentStage.show();
     }
 
 
