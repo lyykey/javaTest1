@@ -1,17 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game2Controller">
+<AnchorPane fx:id="mainPane" onKeyPressed="#handle" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game2Controller">
    <children>
-      <Circle fill="DODGERBLUE" layoutX="51.0" layoutY="200.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="DODGERBLUE" layoutX="532.0" layoutY="200.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
-      <Pane layoutX="200.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0">
+      <Circle fx:id="circleLeft" centerX="30.0" centerY="375.0" fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circleRight" centerX="1470.0" centerY="375.0" fill="DODGERBLUE" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="750.0" endY="750.0" startX="750.0" stroke="#f20000" />
+      <Pane fx:id="leftScissors" layoutX="200.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
          <children>
-            <Button layoutX="73.0" layoutY="148.0" mnemonicParsing="false" onAction="#setBallPane" text="start" />
-            <Label layoutX="85.0" layoutY="71.0" text="Label" />
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../剪刀.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="leftRock" layoutX="300.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../石頭.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="leftPaper" layoutX="400.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../布.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="rightPaper" layoutX="1200.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../布.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="rightRock" layoutX="1100.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../石頭.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="rightScissors" layoutX="1000.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../剪刀.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="hintPane" layoutX="250.0" layoutY="125.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="startButton" layoutX="417.0" layoutY="373.0" mnemonicParsing="false" onAction="#startButtonOnPressed" text="start">
+               <padding>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="31.0" />
+               </font></Button>
+            <Label fx:id="hintLabel" layoutX="484.0" layoutY="189.0" text="Label" />
          </children>
       </Pane>
    </children>

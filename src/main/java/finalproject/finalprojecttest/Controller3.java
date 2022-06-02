@@ -14,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -66,7 +65,7 @@ public class Controller3 implements Initializable {
     @FXML
     Button clickButton;
 
-    public static Scene game3Scene;
+    public static Scene game2Scene;
 
     /**
      * 建構元
@@ -220,8 +219,8 @@ public class Controller3 implements Initializable {
     public void game2Button() throws IOException {
 
         FXMLLoader game2FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game2.fxml"));
-        game3Scene = new Scene(game2FxmlLoader.load());
-        FP.currentStage.setScene(game3Scene);
+        game2Scene = new Scene(game2FxmlLoader.load());
+        FP.currentStage.setScene(game2Scene);
         FP.currentStage.show();
     }
 
