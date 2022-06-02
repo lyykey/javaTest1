@@ -218,6 +218,7 @@ public class Controller3 implements Initializable {
     }
     @FXML
     public void game2Button() throws IOException {
+
         FXMLLoader game2FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game2.fxml"));
         game3Scene = new Scene(game2FxmlLoader.load());
         FP.currentStage.setScene(game3Scene);

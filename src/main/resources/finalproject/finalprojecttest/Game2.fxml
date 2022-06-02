@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game2Controller">
    <children>
-      <Pane fx:id="ballPane" layoutX="33.0" layoutY="14.0" prefHeight="364.0" prefWidth="538.0" />
+      <Circle fill="DODGERBLUE" layoutX="51.0" layoutY="200.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="DODGERBLUE" layoutX="532.0" layoutY="200.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+      <Pane layoutX="200.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="73.0" layoutY="148.0" mnemonicParsing="false" onAction="#setBallPane" text="start" />
+            <Label layoutX="85.0" layoutY="71.0" text="Label" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
