@@ -74,8 +74,8 @@ public class DataHolder {
 //        return true;
 //    }
     public static int whoWin = 0;
-    public int getWhoWin() { return whoWin; }
-    public void setWhoWin(int player){whoWin = player;}
+    public static int getWhoWin() { return whoWin; }
+    public static void setWhoWin(int player){whoWin = player;}
     public static int posPlayer = 0;
     public static int posPlayer2 = 0;
 

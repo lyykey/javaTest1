@@ -124,8 +124,8 @@ public class Game2Controller implements EventHandler<KeyEvent> {
                     case 2 -> {
                         switch (leftPlayerChoice) {
                             case 1 -> whoWin = 2;
-                            case 2 -> whoWin = 1;//
-                            case 3 -> tie();
+                            case 2 -> tie();
+                            case 3 -> whoWin = 1;
                         }
                     }
                     case 3 -> {
@@ -140,7 +140,7 @@ public class Game2Controller implements EventHandler<KeyEvent> {
         }
         if(whoWin != 0){
             animationCheck.pause();
-            System.out.println(whoWin);
+            DataHolder.setWhoWin(whoWin);
         }
     }
     private void showCountdownPane(){
