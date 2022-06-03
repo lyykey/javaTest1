@@ -158,9 +158,9 @@ public class Controller2 {
         Controller3.data2.setPosPlayer2(0);
         data.setimage(player1);
         data2.setimage(player2);
-        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
-        Scene GameScene = new Scene(Game);
-        GameScene.getRoot().requestFocus();
-        FP.currentStage.setScene(GameScene);
+        FXMLLoader Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
+        FP.F3Scene = new Scene(Game.load());
+        FP.F3Scene.getRoot().requestFocus();
+        FP.currentStage.setScene(FP.F3Scene);
     }
 }
