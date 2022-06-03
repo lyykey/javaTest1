@@ -25,11 +25,12 @@ public class FP extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        currentStage = primaryStage;
 
-
+        FXMLLoader fxmlLoader3 = new FXMLLoader(FP.class.getResource("f3.fxml"));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f1.fxml")));
 
+        currentStage = primaryStage;
+        F3Scene = new Scene(fxmlLoader3.load());
         F1Scene = new Scene(root);
         currentStage.setTitle("我一定要贏");
         currentStage.setScene(F1Scene);
