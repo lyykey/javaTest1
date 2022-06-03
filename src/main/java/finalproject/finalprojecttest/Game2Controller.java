@@ -46,9 +46,6 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     ProgressIndicator timeCounter;
     @FXML
     ImageView timeImage;
-    @FXML
-    Label ruleDetails;
-
 
 
     private Timeline animationLeft;
@@ -194,7 +191,7 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     }
     @FXML
     public void backButtonOnPressed(){
-        FP.currentStage.setScene(FP.F3Scene);
+        //FP.currentStage.setScene();
     }
 
 

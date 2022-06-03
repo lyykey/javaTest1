@@ -65,12 +65,12 @@
       </Pane>
       <Pane fx:id="hintPane" layoutX="250.0" layoutY="125.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: white;">
          <children>
-            <Label fx:id="hintLabel" layoutX="464.0" layoutY="49.0" text="規則">
+            <Label fx:id="hintLabel" layoutX="197.0" layoutY="50.0" text="規則">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="startButton" layoutX="417.0" layoutY="379.0" mnemonicParsing="false" onAction="#startButtonOnPressed" text="start">
+            <Button fx:id="startButton" layoutX="197.0" layoutY="50.0" mnemonicParsing="false" onAction="#startButtonOnPressed" text="start">
                <padding>
                   <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                </padding>
@@ -78,11 +78,9 @@
                   <Font size="31.0" />
                </font>
             </Button>
-            <Label layoutX="440.0" layoutY="182.0" text="Label" />
          </children>
       </Pane>
       <ProgressIndicator fx:id="timeCounter" layoutX="625.0" layoutY="61.0" progress="0.0" />
       <ImageView fx:id="timeImage" fitHeight="100.0" fitWidth="80.0" layoutX="700.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="542.0" layoutY="69.0" mnemonicParsing="false" onAction="#backButtonOnPressed" text="Button" />
    </children>
 </AnchorPane>
