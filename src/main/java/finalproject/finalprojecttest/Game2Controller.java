@@ -53,10 +53,10 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     private Timeline animationTime;
     private Timeline animationCheck;
     private double rightSpeed = 1, leftSpeed = 1;
-    private Image imageNum0 = new Image("數字零.png");
-    private Image imageNum1 = new Image("數字一.png");
-    private Image imageNum2 = new Image("數字二.png");
-    private Image imageNum3 = new Image("數字三.png");
+    private final Image imageNum0 = new Image("數字零.png");
+    private final Image imageNum1 = new Image("數字一.png");
+    private final Image imageNum2 = new Image("數字二.png");
+    private final Image imageNum3 = new Image("數字三.png");
     private int whoWin = 0, round = 0;
     boolean RPFirstType = true, LPFirsType = true, firstType = true, ballArrive = false;
     private int leftPlayerChoice = 0, rightPlayerChoice = 0;
