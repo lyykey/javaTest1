@@ -32,7 +32,7 @@ public class Controller3 implements Initializable {
     static DataHolder data = DataHolder.get();
     static DataHolder data2 = DataHolder.get2();
     Dice dice = new Dice();
-    static int thePlayerBeSelect = 0;
+    static int thePlayerBeSelect;
     int forwardEventSize, backwardEventSize;
     boolean initial = true;
     ArrayList<String> forwardEventArrayList = new ArrayList<>();
@@ -153,15 +153,15 @@ public class Controller3 implements Initializable {
                 event = forwardEventArrayList.get((int) (Math.random()*forwardEventSize));
                 label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"前進了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, dice.diceValueForSteps);
-                if(thePlayerBeSelect == 1){advancePlayer1(dice.diceValueForSteps);}
-                else{advancePlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 1){advancePlayer1(dice.diceValueForSteps); DataHolder.currentPlayer = 1;}
+                else{advancePlayer2(dice.diceValueForSteps);DataHolder.currentPlayer = 2;}
             }
             case 3 -> {
                 event = backwardEventArrayList.get((int) (Math.random()*backwardEventSize));
                 label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
                 dice.changePlayerPosition(thePlayerBeSelect, -dice.diceValueForSteps);
-                if(thePlayerBeSelect == 1){retreatPlayer1(dice.diceValueForSteps);}
-                else{retreatPlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 1){retreatPlayer1(dice.diceValueForSteps);DataHolder.currentPlayer = 1;}
+                else{retreatPlayer2(dice.diceValueForSteps);DataHolder.currentPlayer = 2;}
             }
         }
 
@@ -197,8 +197,8 @@ public class Controller3 implements Initializable {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
-                else{advancePlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps); DataHolder.currentPlayer = 2;}
+                else{advancePlayer2(dice.diceValueForSteps); DataHolder.currentPlayer = 1;}
             }
             case 3 -> { //別人後退
                 label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
@@ -206,8 +206,8 @@ public class Controller3 implements Initializable {
                     buttonList[i].setVisible(true);
                 }
                 getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
-                else{retreatPlayer2(dice.diceValueForSteps);}
+                if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps); DataHolder.currentPlayer = 2;}
+                else{retreatPlayer2(dice.diceValueForSteps);DataHolder.currentPlayer = 1;}
 
             }
             default -> System.out.println("rollDice 骰出值超過了");
@@ -278,5 +278,14 @@ public class Controller3 implements Initializable {
         GameScene.getRoot().requestFocus();
         FP.currentStage.setScene(GameScene);
     }
-    
+    @FXML
+    void Start2() throws IOException
+    {
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game2.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
+    }
 }
