@@ -29,12 +29,12 @@ public class FP extends Application {
 
         FXMLLoader fxmlLoader1 = new FXMLLoader(FP.class.getResource("f1.fxml"));
         FXMLLoader fxmlLoader2 = new FXMLLoader(FP.class.getResource("f2.fxml"));
-        FXMLLoader fxmlLoader3 = new FXMLLoader(FP.class.getResource("f3.fxml"));
+
 
         currentStage = primaryStage;
         F1Scene = new Scene(fxmlLoader1.load());
         F2Scene = new Scene(fxmlLoader2.load());
-        F3Scene = new Scene(fxmlLoader3.load());
+
         currentStage.setTitle("我一定要贏");
         FP.F1Scene.getRoot().requestFocus();
         currentStage.setScene(F1Scene);
