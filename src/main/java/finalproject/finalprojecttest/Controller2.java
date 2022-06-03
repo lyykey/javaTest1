@@ -501,6 +501,7 @@ public class Controller2 {
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
+        FP.F3Scene.getRoot().requestFocus();
         FP.currentStage.setScene(FP.F3Scene);
     }
 }

@@ -28,6 +28,7 @@ public class Controller1 {
     Button btForOver = new Button();
     @FXML
     public void display(ActionEvent e) throws IOException {
+        FP.F2Scene.getRoot().requestFocus();
         FP.currentStage.setScene(FP.F2Scene);
     }
 

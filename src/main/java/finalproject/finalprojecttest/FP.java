@@ -36,6 +36,7 @@ public class FP extends Application {
         F2Scene = new Scene(fxmlLoader2.load());
         F3Scene = new Scene(fxmlLoader3.load());
         currentStage.setTitle("我一定要贏");
+        FP.F1Scene.getRoot().requestFocus();
         currentStage.setScene(F1Scene);
         currentStage.show();
     }
