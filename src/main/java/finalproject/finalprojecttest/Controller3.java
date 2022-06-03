@@ -209,15 +209,15 @@ public class Controller3 implements Initializable {
                 getPlayerChooseWhoButton.setVisible(true);
                 if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
                 else{retreatPlayer2(dice.diceValueForSteps);}
-
             }
             default -> System.out.println("rollDice 骰出值超過了");
-
         }
     }
+    /**
+     * 開始遊戲二
+     * @author 林盈利*/
     @FXML
     public void game2Button() throws IOException {
-
         FXMLLoader game2FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game2.fxml"));
         game2Scene = new Scene(game2FxmlLoader.load());
         FP.currentStage.setScene(game2Scene);

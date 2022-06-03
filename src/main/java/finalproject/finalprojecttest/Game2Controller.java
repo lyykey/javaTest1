@@ -47,6 +47,7 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     @FXML
     ImageView timeImage;
 
+
     private Timeline animationLeft;
     private Timeline animationRight;
     private Timeline animationTime;
@@ -56,12 +57,19 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     private Image imageNum1 = new Image("數字一.png");
     private Image imageNum2 = new Image("數字二.png");
     private Image imageNum3 = new Image("數字三.png");
-
-
+    private int whoWin = 0, round = 0;
+    boolean RPFirstType = true, LPFirsType = true, firstType = true, ballArrive = false;
+    private int leftPlayerChoice = 0, rightPlayerChoice = 0;
     @FXML
     public void startButtonOnPressed(){
         hintPane.setVisible(false);
         Controller3.game2Scene.getRoot().requestFocus();
+        animationLeft = new Timeline(new KeyFrame(Duration.millis(20), e -> moveLeft()));
+        animationLeft.setCycleCount(Timeline.INDEFINITE);
+        animationRight = new Timeline(new KeyFrame(Duration.millis(20), e -> moveRight()));
+        animationRight.setCycleCount(Timeline.INDEFINITE);
+        animationCheck = new Timeline(new KeyFrame(Duration.millis(20), e -> checkWhoWin()));
+        animationCheck.setCycleCount(Timeline.INDEFINITE);
         startGame();
 
     }
@@ -87,31 +95,19 @@ public class Game2Controller implements EventHandler<KeyEvent> {
         rightPlayerChoice = 0;
     }
     private void startGame(){
-        System.out.println("startGame function");
         initialBall();
-        animationLeft = new Timeline(new KeyFrame(Duration.millis(20), e -> moveLeft()));
-        animationLeft.setCycleCount(Timeline.INDEFINITE);
-        animationRight = new Timeline(new KeyFrame(Duration.millis(20), e -> moveRight()));
-        animationRight.setCycleCount(Timeline.INDEFINITE);
-        animationCheck = new Timeline(new KeyFrame(Duration.millis(20), e -> checkWhoWin()));
-        animationCheck.setCycleCount(Timeline.INDEFINITE);
-
         showCountdownPane();
-        animationCheck.play();
-
-
     }
-    private int whoWin = 0, round = 0;
     private void tie(){
-        if(round < 3){
+        if(round < 2){
             round++;
             startGame();
-        }else whoWin = (int)(Math.random()*2);
+        }else whoWin = (int)(Math.random()*2)+1;
     }
     private void checkWhoWin(){
         if(ballArrive) {
-            if(RPFirstType && !LPFirsType) whoWin = 2;
-            if(!RPFirstType && LPFirsType) whoWin = 1;
+            if(RPFirstType && !LPFirsType) whoWin = 1;
+            if(!RPFirstType && LPFirsType) whoWin = 2;
             if(RPFirstType && LPFirsType) {
                 tie();
             }
@@ -128,8 +124,8 @@ public class Game2Controller implements EventHandler<KeyEvent> {
                     case 2 -> {
                         switch (leftPlayerChoice) {
                             case 1 -> whoWin = 2;
-                            case 2 -> tie();
-                            case 3 -> whoWin = 1;
+                            case 2 -> whoWin = 1;//
+                            case 3 -> tie();
                         }
                     }
                     case 3 -> {
@@ -142,7 +138,7 @@ public class Game2Controller implements EventHandler<KeyEvent> {
                 }
             }
         }
-        if(whoWin != 0) {
+        if(whoWin != 0){
             animationCheck.pause();
             System.out.println(whoWin);
         }
@@ -162,10 +158,9 @@ public class Game2Controller implements EventHandler<KeyEvent> {
             timeImage.setVisible(false);
             animationLeft.play();
             animationRight.play();
+            animationCheck.play();
         }
-
     }
-    boolean RPFirstType = true, LPFirsType = true, firstType = true, ballArrive = false;
     private void moveLeft(){
         Circle circle = circleLeft;
         double x = circle.getCenterX();
@@ -194,9 +189,12 @@ public class Game2Controller implements EventHandler<KeyEvent> {
         }
         circle.setCenterX(x);
     }
+    @FXML
+    public void backButtonOnPressed(){
+        //FP.currentStage.setScene();
+    }
 
 
-    private int leftPlayerChoice = 0, rightPlayerChoice = 0;
 
     @Override
     public void handle(KeyEvent keyEvent) {
@@ -257,18 +255,5 @@ public class Game2Controller implements EventHandler<KeyEvent> {
                 }
             }
         }
-
-//        switch (e) {
-//            case NUMPAD1 -> {
-//                rightScissors.setStyle("-fx-background-color: blue");
-//
-//            }
-//            case NUMPAD2 -> {
-//                System.out.println(rightScissors.getBackground());
-//                if(!String.valueOf(rightScissors.getBackground()).equals("null")){
-//                    System.out.println("有東西");
-//                }else System.out.println("沒東西");
-//            }
-//        }
     }
 }
