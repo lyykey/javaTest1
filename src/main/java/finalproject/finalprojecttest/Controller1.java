@@ -28,12 +28,7 @@ public class Controller1 {
     Button btForOver = new Button();
     @FXML
     public void display(ActionEvent e) throws IOException {
-        label.setVisible(false);
-        bt1.setVisible(false);
-        Parent f2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f2.fxml")));
-        Scene F2Scene = new Scene(f2);
-        F2Scene.getRoot().requestFocus();
-        FP.currentStage.setScene(F2Scene);
+        FP.currentStage.setScene(FP.F2Scene);
     }
 
     @FXML
