@@ -17,7 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 
-public class Game2Controller implements EventHandler<KeyEvent> {
+public class Game3Controller implements EventHandler<KeyEvent> {
     @FXML
     AnchorPane mainPane;
     @FXML
@@ -46,12 +46,22 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     ProgressIndicator timeCounter;
     @FXML
     ImageView timeImage;
+    @FXML
+    Pane whoWinPane;
+    @FXML
+    Label whoWinLabel;
+    @FXML
+    Label roundLabel;
+    @FXML
+    Button winCheckButton;
 
 
     private Timeline animationLeft;
     private Timeline animationRight;
     private Timeline animationTime;
     private Timeline animationCheck;
+    private Timeline animationWhoWin;
+    private ProgressIndicator whoWinTime = new ProgressIndicator();
     private double rightSpeed = 1, leftSpeed = 1;
     private final Image imageNum0 = new Image("數字零.png");
     private final Image imageNum1 = new Image("數字一.png");
@@ -60,10 +70,13 @@ public class Game2Controller implements EventHandler<KeyEvent> {
     private int whoWin = 0, round = 0;
     boolean RPFirstType = true, LPFirsType = true, firstType = true, ballArrive = false;
     private int leftPlayerChoice = 0, rightPlayerChoice = 0;
+    private boolean tieBoolean = false;
     @FXML
     public void startButtonOnPressed(){
         hintPane.setVisible(false);
-        Controller3.game2Scene.getRoot().requestFocus();
+        Controller3.game3Scene.getRoot().requestFocus();
+        animationWhoWin = new Timeline(new KeyFrame(Duration.millis(1500), e -> winTime()));
+        animationWhoWin .setCycleCount(Timeline.INDEFINITE);
         animationLeft = new Timeline(new KeyFrame(Duration.millis(20), e -> moveLeft()));
         animationLeft.setCycleCount(Timeline.INDEFINITE);
         animationRight = new Timeline(new KeyFrame(Duration.millis(20), e -> moveRight()));
@@ -93,16 +106,37 @@ public class Game2Controller implements EventHandler<KeyEvent> {
         ballArrive = false;
         leftPlayerChoice = 0;
         rightPlayerChoice = 0;
+        whoWinTime.setProgress(0);
     }
     private void startGame(){
         initialBall();
         showCountdownPane();
     }
+    private void winTime(){
+        whoWinTime.setProgress(whoWinTime.getProgress()+0.5);
+        System.out.println(whoWinTime.getProgress());
+        if(whoWinTime.getProgress() >= 1){
+            roundLabel.setText("Round " + (round+1));
+            animationWhoWin.stop();
+            whoWinPane.setVisible(false);
+            if(whoWin == 0) startGame();
+            else {
+                backButtonOnPressed();
+            }
+        }
+    }
     private void tie(){
+        tieBoolean = true;
+        animationCheck.pause();
         if(round < 2){
             round++;
-            startGame();
-        }else whoWin = (int)(Math.random()*2)+1;
+            whoWinLabel.setText("平手，進入下一回合。");
+        }else {
+            whoWin = (int)(Math.random()*2)+1;
+            whoWinLabel.setText("你們大戰三百回合後還是無法分出勝負，最後因為對方媽媽叫他回家了。\n所以最後由玩家"+whoWin+"獲勝!");
+        }
+        whoWinPane.setVisible(true);
+        animationWhoWin.play();
     }
     private void checkWhoWin(){
         if(ballArrive) {
@@ -139,8 +173,15 @@ public class Game2Controller implements EventHandler<KeyEvent> {
             }
         }
         if(whoWin != 0){
+            animationLeft.pause();
+            animationRight.pause();
             animationCheck.pause();
-            DataHolder.setWhoWin(whoWin);
+            if(!tieBoolean){
+                whoWinLabel.setText("玩家"+whoWin+"獲勝了!");
+            }
+            whoWinPane.setVisible(true);
+            animationWhoWin.play();
+            DataHolder.whoWin = whoWin;
         }
     }
     private void showCountdownPane(){
@@ -156,9 +197,11 @@ public class Game2Controller implements EventHandler<KeyEvent> {
             timeImage.setImage(imageNum0);
             animationTime.stop();
             timeImage.setVisible(false);
-            animationLeft.play();
-            animationRight.play();
             animationCheck.play();
+            if(whoWin == 0){
+                animationLeft.play();
+                animationRight.play();
+            }
         }
     }
     private void moveLeft(){
@@ -201,12 +244,12 @@ public class Game2Controller implements EventHandler<KeyEvent> {
         KeyCode e = keyEvent.getCode();
         System.out.println(e);
         if(!ballArrive){
-            if(e == KeyCode.NUMPAD1 || e == KeyCode.NUMPAD2 || e == KeyCode.NUMPAD3) {
+            if(e == KeyCode.NUMPAD1 || e == KeyCode.NUMPAD2 || e == KeyCode.NUMPAD3 || e == KeyCode.DIGIT1 || e == KeyCode.DIGIT2 || e == KeyCode.DIGIT3) {
                 if(RPFirstType) {
                     switch (e) {
-                        case NUMPAD1 -> rightPlayerChoice = 1;
-                        case NUMPAD2 -> rightPlayerChoice = 2;
-                        case NUMPAD3 -> rightPlayerChoice = 3;
+                        case NUMPAD1, DIGIT1 -> rightPlayerChoice = 1;
+                        case NUMPAD2, DIGIT2 -> rightPlayerChoice = 2;
+                        case NUMPAD3, DIGIT3 -> rightPlayerChoice = 3;
                     }
                     animationRight.pause();
                     RPFirstType = false;

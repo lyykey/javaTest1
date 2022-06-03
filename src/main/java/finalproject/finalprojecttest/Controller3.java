@@ -65,7 +65,7 @@ public class Controller3 implements Initializable {
     @FXML
     Button clickButton;
 
-    public static Scene game2Scene;
+    public static Scene game3Scene;
 
     /**
      * 建構元
@@ -217,10 +217,10 @@ public class Controller3 implements Initializable {
      * 開始遊戲二
      * @author 林盈利*/
     @FXML
-    public void game2Button() throws IOException {
-        FXMLLoader game2FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game2.fxml"));
-        game2Scene = new Scene(game2FxmlLoader.load());
-        FP.currentStage.setScene(game2Scene);
+    public void game3Button() throws IOException {
+        FXMLLoader game3FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game3.fxml"));
+        game3Scene = new Scene(game3FxmlLoader.load());
+        FP.currentStage.setScene(game3Scene);
         FP.currentStage.show();
     }
 
