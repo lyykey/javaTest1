@@ -7,7 +7,7 @@
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
-      <ImageView fitHeight="750.0" fitWidth="753.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="game3Scene" fitHeight="750.0" fitWidth="753.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../stone-wall.png" />
          </image>
@@ -168,5 +168,6 @@
       </GridPane>
       <Button layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#Start" text="Change Scene" />
       <Button layoutX="115.0" layoutY="538.0" mnemonicParsing="false" onAction="#game3Button" text="Game3" />
+      <Label fx:id="showCurrentPlayer" layoutX="157.0" layoutY="402.0" text="玩家一擲骰" />
     </children>
 </AnchorPane>

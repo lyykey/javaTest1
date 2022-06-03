@@ -6,6 +6,7 @@ public class Dice {
     public int diceValueForSteps = 0;
     public int currentPlayerInt = 1;
     public int balanceCheckPoint = 30; //between 0 ~ 99. The higher value, the higher the probability of moving backward.
+    public int balanceOtherOrSelf = 10; //between 0 ~ 20 The higher value, the higher the probability of Self.
     public String[] playerName = {"玩家一","玩家二","玩家三","玩家四"};
 
 
@@ -44,10 +45,19 @@ public class Dice {
      * 用來擲動作 步數
      * */
     public void rollDice(){
+        if((data.getDataHolder1().pos + data.getDataHolder2().pos) <30) balanceCheckPoint = 10;
+        else balanceCheckPoint = 40;
         int action = (int)(Math.random()*100), steps = (int)(Math.random()*4);
         steps = (steps == 0)? 4 : steps;
+        if(currentPlayerInt == 1){
+            if(data.getDataHolder1().pos < 20) balanceOtherOrSelf = 15;
+            else balanceOtherOrSelf = 10;
+        }else {
+            if(data.getDataHolder1().pos < 20) balanceOtherOrSelf = 15;
+            else balanceOtherOrSelf = 10;
+        }
         if (action >= balanceCheckPoint) { //大於等於CheckPoint 則骰到前進相關動作
-            if (Math.random()*2 >=1) { //這裡的1可以用來調整骰到別人或自己移動的機率
+            if (Math.random()*20 >=balanceOtherOrSelf) { //這裡的balanceOtherOrSelf可以用來調整骰到別人或自己移動的機率
                 action = 0;
             }else action = 2;
         }

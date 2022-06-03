@@ -64,6 +64,8 @@ public class Controller3 implements Initializable {
     /**擲骰按鈕*/
     @FXML
     Button clickButton;
+    @FXML
+    Label showCurrentPlayer;
 
     public static Scene game3Scene;
 
@@ -130,8 +132,14 @@ public class Controller3 implements Initializable {
          * }
          * */
         /*這裡會跟最大玩家數有關*/
-        if(DataHolder.currentPlayer !=2) DataHolder.currentPlayer++;
-        else DataHolder.currentPlayer = 1;
+        if(DataHolder.currentPlayer !=2) {
+            DataHolder.currentPlayer=2;
+            showCurrentPlayer.setText("現在輪到玩家二擲骰");
+        }
+        else {
+            DataHolder.currentPlayer = 1;
+            showCurrentPlayer.setText("現在輪到玩家一擲骰");
+        }
     }
     /**當玩家需要選擇其他玩家移動時會執行*/
     /**秉均加一些東西*/
@@ -174,6 +182,7 @@ public class Controller3 implements Initializable {
         setButtonName();
         dice.rollDice();
         String event;
+        String player = "玩家一";
         switch (dice.diceValueForAction) { // 要輸出誰移動、移動幾步，要顯示label、選擇
             case 0 -> { // 自己前進
                 event = forwardEventArrayList.get((int) (Math.random() * forwardEventSize));
@@ -193,22 +202,18 @@ public class Controller3 implements Initializable {
             }
             case 2 -> { //別人前進
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
-                label.setText("看來幸運並不在你身上發生，但你有賦予的權利。請選擇要讓哪位玩家前進");
-                for (int i = 0; i < 1; i++){
-                    buttonList[i].setVisible(true);
-                }
-                getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
-                else{advancePlayer2(dice.diceValueForSteps);}
+                if(DataHolder.currentPlayer == 1) player = "玩家二";
+                label.setText("看來幸運並不在你身上發生，而是在"+player+"身上!");
+                checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1){advancePlayer2(dice.diceValueForSteps);}
+                else{advancePlayer1(dice.diceValueForSteps);}
             }
             case 3 -> { //別人後退
-                label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
-                for (int i = 0; i < 1; i++){
-                    buttonList[i].setVisible(true);
-                }
-                getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
-                else{retreatPlayer2(dice.diceValueForSteps);}
+                if(DataHolder.currentPlayer == 1) player = "玩家二";
+                label.setText("今天悲劇並不在你身上發生，而是在"+player+"身上!");
+                checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1){retreatPlayer2(dice.diceValueForSteps);}
+                else{retreatPlayer1(dice.diceValueForSteps);}
             }
             default -> System.out.println("rollDice 骰出值超過了");
         }
