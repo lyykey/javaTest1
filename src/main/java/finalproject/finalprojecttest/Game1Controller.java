@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Game1Controller implements Initializable {
+    int currentPlayer = 1;
 
     @FXML
     GridPane board;
@@ -86,173 +87,173 @@ public class Game1Controller implements Initializable {
 
     @FXML
     public void button00() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle00.setVisible(true);
             b00.setText("o");
             b00.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross00.setVisible(true);
             b00.setText("x");
             b00.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button01() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle01.setVisible(true);
             b01.setText("o");
             b01.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross01.setVisible(true);
             b01.setText("x");
             b01.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button02() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle02.setVisible(true);
             b02.setText("o");
             b02.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross02.setVisible(true);
             b02.setText("x");
             b02.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button10() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle10.setVisible(true);
             b10.setText("o");
             b10.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross10.setVisible(true);
             b10.setText("x");
             b10.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button11() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle11.setVisible(true);
             b11.setText("o");
             b11.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross11.setVisible(true);
             b11.setText("x");
             b11.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button12() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle12.setVisible(true);
             b12.setText("o");
             b12.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross12.setVisible(true);
             b12.setText("x");
             b12.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button20() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle20.setVisible(true);
             b20.setText("o");
             b20.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross20.setVisible(true);
             b20.setText("x");
             b20.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button21() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle21.setVisible(true);
             b21.setText("o");
             b21.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross21.setVisible(true);
             b21.setText("x");
             b21.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
     public void button22() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             circle22.setVisible(true);
             b22.setText("o");
             b22.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 2;
+            currentPlayer = 2;
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             cross22.setVisible(true);
             b22.setText("x");
             b22.setDisable(true);
             checkWin();
-            DataHolder.currentPlayer = 1;
+            currentPlayer = 1;
         }
     }
     @FXML
@@ -266,22 +267,22 @@ public class Game1Controller implements Initializable {
     @Override
     public void initialize(URL u, ResourceBundle rb)
     {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             turnLabel.setText("Player 1 turn!");
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             turnLabel.setText("Player 2 turn!");
         }
     }
 
     public void checkWin() throws IOException {
-        if(DataHolder.currentPlayer == 1)
+        if(currentPlayer == 1)
         {
             turnLabel.setText("Player 2 turn!");
         }
-        else if(DataHolder.currentPlayer == 2)
+        else if(currentPlayer == 2)
         {
             turnLabel.setText("Player 1 turn!");
         }

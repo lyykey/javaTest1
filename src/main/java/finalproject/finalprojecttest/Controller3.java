@@ -292,5 +292,14 @@ public class Controller3 implements Initializable {
         GameScene.getRoot().requestFocus();
         FP.currentStage.setScene(GameScene);
     }
+    @FXML
+    void Start2() throws IOException {
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game2.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
+    }
     
 }
