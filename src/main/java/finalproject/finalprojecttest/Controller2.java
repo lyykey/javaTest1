@@ -68,7 +68,7 @@ public class Controller2 {
     @FXML
     Image i= new Image("國瑜.png");
     @FXML
-    Image j = new Image("妹子正常.png");
+    Image j = new Image("RICK.png");
     @FXML
     Image ar =new Image("力量人大.png");
     @FXML
@@ -88,7 +88,7 @@ public class Controller2 {
     @FXML
     Image ir = new Image("國瑜大.png");
     @FXML
-    Image jr = new Image("妹子大.png");
+    Image jr = new Image("RICK大.png");
     @FXML
     void a_enter(){
         if(ac==0)wait=0;
@@ -456,7 +456,7 @@ public class Controller2 {
         jimage.setImage(jr);
         wait=1;
         ac=0;bc=0;cc=0;dc=0;ec=0;fc=0;gc=0;hc=0;ic=0;jc=1;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 RICK");
         switch (who){
             case 1:
                 player1 = j;
@@ -465,7 +465,7 @@ public class Controller2 {
                 player2 = j;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "RICK.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();
