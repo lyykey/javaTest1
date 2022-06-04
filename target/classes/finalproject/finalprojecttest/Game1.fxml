@@ -1,11 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game1Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game1Controller">
    <children>
-      <Button layoutX="274.0" layoutY="187.0" mnemonicParsing="false" onAction="#Start" text="Change scene" />
+      <Label layoutX="573.0" prefHeight="126.0" prefWidth="353.0" text="你踩到特殊格子!" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="turnLabel" alignment="CENTER" layoutX="481.0" layoutY="571.0" prefHeight="126.0" prefWidth="540.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="returnBtn" layoutX="1051.0" layoutY="312.0" mnemonicParsing="false" onAction="#Start" prefHeight="126.0" prefWidth="217.0" style="-fx-background-color: black; -fx-border-color: white;" text="回首頁" textFill="WHITE" visible="false">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="387.0" fitWidth="432.0" layoutX="535.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Tic-tac-toe.png" />
+         </image>
+      </ImageView>
+      <GridPane hgap="15.0" layoutX="535.0" layoutY="182.0" prefHeight="387.0" prefWidth="387.0" vgap="15.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="124.999951171875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="105.00004882812499" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.80003662109374" minWidth="10.0" prefWidth="126.80003662109374" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="126.59998168945313" minHeight="10.0" prefHeight="126.59998168945313" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="114.60001220703126" minHeight="10.0" prefHeight="107.20000000000002" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="122.40000000000003" minHeight="10.0" prefHeight="122.40000000000003" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="b00" mnemonicParsing="false" onAction="#button00" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" />
+            <Button fx:id="b01" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button01" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.rowIndex="1" />
+            <Button fx:id="b02" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button02" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.rowIndex="2" />
+            <Button fx:id="b10" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button10" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="1" />
+            <Button fx:id="b11" layoutX="151.0" layoutY="152.0" mnemonicParsing="false" onAction="#button11" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="b12" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button12" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="b20" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button20" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="2" />
+            <Button fx:id="b21" layoutX="10.0" layoutY="152.0" mnemonicParsing="false" onAction="#button21" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="b22" layoutX="10.0" layoutY="16.0" mnemonicParsing="false" onAction="#button22" prefHeight="114.0" prefWidth="121.0" style="-fx-background-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fx:id="circle00" fitHeight="120.0" fitWidth="114.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle01" fitHeight="112.0" fitWidth="105.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle02" fitHeight="120.0" fitWidth="114.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle10" fitHeight="106.0" fitWidth="107.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle11" fitHeight="108.0" fitWidth="104.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle12" fitHeight="109.0" fitWidth="102.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle20" fitHeight="120.0" fitWidth="114.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle21" fitHeight="106.0" fitWidth="107.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="circle22" fitHeight="106.0" fitWidth="107.0" layoutX="151.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../Blue_circlepng.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross00" fitHeight="119.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross01" fitHeight="119.0" fitWidth="122.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross02" fitHeight="119.0" fitWidth="122.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross10" fitHeight="117.0" fitWidth="111.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross11" fitHeight="117.0" fitWidth="113.0" layoutX="10.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross12" fitHeight="118.0" fitWidth="113.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross20" fitHeight="119.0" fitWidth="122.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross21" fitHeight="119.0" fitWidth="122.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cross22" fitHeight="119.0" fitWidth="122.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../../RedCross.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

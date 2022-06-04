@@ -25,13 +25,18 @@ public class FP extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+
+
+        FXMLLoader fxmlLoader1 = new FXMLLoader(FP.class.getResource("f1.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(FP.class.getResource("f2.fxml"));
+
+
         currentStage = primaryStage;
+        F1Scene = new Scene(fxmlLoader1.load());
+        F2Scene = new Scene(fxmlLoader2.load());
 
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f1.fxml")));
-
-        F1Scene = new Scene(root);
         currentStage.setTitle("我一定要贏");
+        FP.F1Scene.getRoot().requestFocus();
         currentStage.setScene(F1Scene);
         currentStage.show();
     }

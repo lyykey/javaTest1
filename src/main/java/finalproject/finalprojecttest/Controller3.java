@@ -14,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +64,10 @@ public class Controller3 implements Initializable {
     /**擲骰按鈕*/
     @FXML
     Button clickButton;
+    @FXML
+    Label showCurrentPlayer;
+
+    public static Scene game3Scene;
 
     /**
      * 建構元
@@ -129,8 +132,14 @@ public class Controller3 implements Initializable {
          * }
          * */
         /*這裡會跟最大玩家數有關*/
-        if(DataHolder.currentPlayer !=2) DataHolder.currentPlayer++;
-        else DataHolder.currentPlayer = 1;
+        if(DataHolder.currentPlayer !=2) {
+            DataHolder.currentPlayer=2;
+            showCurrentPlayer.setText("現在輪到玩家二擲骰");
+        }
+        else {
+            DataHolder.currentPlayer = 1;
+            showCurrentPlayer.setText("現在輪到玩家一擲骰");
+        }
     }
     /**當玩家需要選擇其他玩家移動時會執行*/
     /**秉均加一些東西*/
@@ -173,6 +182,7 @@ public class Controller3 implements Initializable {
         setButtonName();
         dice.rollDice();
         String event;
+        String player = "玩家一";
         switch (dice.diceValueForAction) { // 要輸出誰移動、移動幾步，要顯示label、選擇
             case 0 -> { // 自己前進
                 event = forwardEventArrayList.get((int) (Math.random() * forwardEventSize));
@@ -192,27 +202,35 @@ public class Controller3 implements Initializable {
             }
             case 2 -> { //別人前進
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
-                label.setText("看來幸運並不在你身上發生，但你有賦予的權利。請選擇要讓哪位玩家前進");
-                for (int i = 0; i < 1; i++){
-                    buttonList[i].setVisible(true);
-                }
-                getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){advancePlayer1(dice.diceValueForSteps);}
-                else{advancePlayer2(dice.diceValueForSteps);}
+                if(DataHolder.currentPlayer == 1) player = "玩家二";
+                label.setText("看來幸運並不在你身上發生，而是在"+player+"身上!");
+                checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1){advancePlayer2(dice.diceValueForSteps);}
+                else{advancePlayer1(dice.diceValueForSteps);}
             }
             case 3 -> { //別人後退
-                label.setText("看來悲劇並不在你身上發生，而且你有陷害的機會!請選擇要讓哪位玩家後退");
-                for (int i = 0; i < 1; i++){
-                    buttonList[i].setVisible(true);
-                }
-                getPlayerChooseWhoButton.setVisible(true);
-                if(thePlayerBeSelect == 0){retreatPlayer1(dice.diceValueForSteps);}
-                else{retreatPlayer2(dice.diceValueForSteps);}
-
+                if(DataHolder.currentPlayer == 1) player = "玩家二";
+                label.setText("今天悲劇並不在你身上發生，而是在"+player+"身上!");
+                checkButton.setVisible(true);
+                if(DataHolder.currentPlayer == 1){retreatPlayer2(dice.diceValueForSteps);}
+                else{retreatPlayer1(dice.diceValueForSteps);}
             }
             default -> System.out.println("rollDice 骰出值超過了");
-
         }
+    }
+    /**
+     * 開始遊戲二
+     * @author 林盈利*/
+    @FXML
+    public void game3Button() throws IOException {
+        
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+
+        FXMLLoader game3FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game3.fxml"));
+        game3Scene = new Scene(game3FxmlLoader.load());
+        FP.currentStage.setScene(game3Scene);
+        FP.currentStage.show();
     }
 
 
@@ -263,10 +281,12 @@ public class Controller3 implements Initializable {
         player2.setImage(data2.pl);
         if(data.getWhoWin() == 1) {data.setPosPlayer(data.getPosPlayer() + 2);}
         else if(data.getWhoWin() == 2){data2.setPosPlayer2(data2.getPosPlayer2() + 2);}
+        data.setWhoWin(0);
         GridPane.setColumnIndex(player1, data.getPosPlayer());
         GridPane.setColumnIndex(player2, data2.getPosPlayer2());
         columnPlayer1 = data.getPosPlayer();
         columnPlayer2 = data2.getPosPlayer2();
+        showCurrentPlayer.setText("現在輪到玩家"+ DataHolder.currentPlayer +"擲骰");
     }
 
     @FXML
@@ -274,6 +294,15 @@ public class Controller3 implements Initializable {
         data.setPosPlayer(columnPlayer1);
         data2.setPosPlayer2(columnPlayer2);
         Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game1.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
+    }
+    @FXML
+    void Start2() throws IOException {
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game2.fxml")));
         Scene GameScene = new Scene(Game);
         GameScene.getRoot().requestFocus();
         FP.currentStage.setScene(GameScene);

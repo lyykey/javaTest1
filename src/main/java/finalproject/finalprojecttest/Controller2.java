@@ -501,9 +501,9 @@ public class Controller2 {
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
-        Scene GameScene = new Scene(Game);
-        GameScene.getRoot().requestFocus();
-        FP.currentStage.setScene(GameScene);
+        FXMLLoader fxmlLoader3 = new FXMLLoader(FP.class.getResource("f3.fxml"));
+        FP.F3Scene = new Scene(fxmlLoader3.load());
+        FP.F3Scene.getRoot().requestFocus();
+        FP.currentStage.setScene(FP.F3Scene);
     }
 }

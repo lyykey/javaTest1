@@ -64,7 +64,8 @@ public class DataHolder {
     public DataHolder getDataHolder2(){
         return dataHolder2;
     }
-  
+    /**當前是哪位玩家踩到遊戲格 1為玩家一 2為玩家二*/
+    public static int whoStartGame = 0;
 //    public boolean changePos(int value){
 //        if(pos + value > 100 || pos +value < 0)
 //            return false;
@@ -72,7 +73,7 @@ public class DataHolder {
 //        pos+=value;
 //        return true;
 //    }
-     public static int whoWin = 0;
+    public static int whoWin = 0;
     public int getWhoWin() { return whoWin; }
     public void setWhoWin(int player){whoWin = player;}
     public static int posPlayer = 0;

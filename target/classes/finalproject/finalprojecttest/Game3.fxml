@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainPane" onKeyPressed="#handle" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Game3Controller">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../小遊戲三背景.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="circleLeft" centerX="30.0" centerY="375.0" fill="#eb02022e" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Circle fx:id="circleRight" centerX="1470.0" centerY="375.0" fill="#1f93ff2d" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+      <Line endX="750.0" endY="750.0" startX="750.0" stroke="#f20000" />
+      <Pane fx:id="leftScissors" layoutX="200.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../剪刀.png" />
+               </image></ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="leftRock" layoutX="300.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../石頭.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="leftPaper" layoutX="400.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../布.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="rightPaper" layoutX="1200.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../布.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="rightRock" layoutX="1100.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../石頭.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="rightScissors" layoutX="1000.0" layoutY="50.0" prefHeight="100.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../剪刀.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="hintPane" layoutX="250.0" layoutY="125.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="hintLabel" layoutX="465.0" layoutY="32.0" text="規則">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="startButton" layoutX="417.0" layoutY="375.0" mnemonicParsing="false" onAction="#startButtonOnPressed" text="start">
+               <padding>
+                  <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Button>
+            <Label layoutX="82.0" layoutY="103.0" prefHeight="200.0" prefWidth="481.0" text="這是一款允許晚出拳的猜拳遊戲。&#10;遊戲開始後，屬於你的那顆球會開始加速向紅線衝刺，在球碰到紅線之前都可以出拳。&#10;當你出拳後，己方的拳頭列表會以藍色亮起你的出拳。(圖片一)&#10;而當對手比你早出拳時，己方的拳頭列表會以紅色亮起可以獲勝的出拳。(圖片二)&#10;所以你要做的，就是盡量撐到最後，讓你的對手比你早出拳，然後再出可以獲勝的拳。&#10;&#10;當一方出拳後，而另一方直到球碰到紅線時都還沒出拳，則以已經出拳的一方獲勝。&#10;平手時則進入下一回合。&#10;當球碰到紅線，而無人出拳時，則進入下一回合。&#10;回合上限是三回合，到第三回合時都無人勝出時，則會隨機決定勝者。" />
+            <Label layoutX="657.0" layoutY="304.0" text="左方按鍵 :&#10;J&#9;-&gt;&#9;剪刀&#10;K&#9;-&gt;&#9;石頭&#10;L &#9;-&gt;&#9;布" />
+            <Label layoutX="809.0" layoutY="304.0" text="右方按鍵 :&#10;1&#9;-&gt;&#9;剪刀&#10;2&#9;-&gt;&#9;石頭&#10;3 &#9;-&gt;&#9;布" />
+            <Label layoutX="82.0" layoutY="303.0" text="開始前記得換到英文輸入，不然不能正常操作喔。下面有輸入框可以給你確認。" />
+            <TextField layoutX="82.0" layoutY="334.0" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="645.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../範例己方出拳.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="645.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../範例晚出拳.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="866.0" layoutY="135.0" text="圖片一" />
+            <Label layoutX="866.0" layoutY="224.0" text="圖片二" />
+         </children>
+      </Pane>
+      <ProgressIndicator fx:id="timeCounter" layoutX="625.0" layoutY="61.0" progress="0.0" visible="false" />
+      <ImageView fx:id="timeImage" fitHeight="100.0" fitWidth="80.0" layoutX="710.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane fx:id="whoWinPane" layoutX="399.0" layoutY="197.0" prefHeight="67.0" prefWidth="701.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Label fx:id="whoWinLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="4.0" prefHeight="60.0" prefWidth="701.0" text="label" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Label fx:id="roundLabel" layoutX="678.0" layoutY="57.0" text="Round 1">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="winCheckButton" disable="true" layoutX="531.0" layoutY="69.0" mnemonicParsing="false" onAction="#backButtonOnPressed" text="回到地圖" visible="false" />
+      <Label layoutX="53.0" layoutY="76.0" text="玩家一">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="1368.0" layoutY="84.0" text="玩家二">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
