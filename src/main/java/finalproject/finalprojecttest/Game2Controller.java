@@ -19,7 +19,7 @@ public class Game2Controller implements Initializable {
     int answer = (int)(Math.random()*(-99 +1)+99);
     int p1Number = -1;
     int p2Number = -1;
-    int currentPlayer = 1;
+    int currentPlay = 1;
 
     @FXML
     TextField myTextField;
@@ -34,18 +34,18 @@ public class Game2Controller implements Initializable {
     @FXML
     public void Guess()
     {
-        if(currentPlayer == 1)
+        if(currentPlay == 1)
         {
             p1Number = Integer.parseInt(myTextField.getText());
             myTextField.setText("");
-            currentPlayer = 2;
+            currentPlay = 2;
             turnLabel.setText("Player 2 turn!");
         }
-        else if(currentPlayer == 2)
+        else if(currentPlay == 2)
         {
             p2Number = Integer.parseInt(myTextField.getText());
             myTextField.setText("");
-            currentPlayer = 1;
+            currentPlay = 1;
             turnLabel.setText("Player 1 turn!");
         }
         if(p1Number != -1 && p2Number != -1)
@@ -79,8 +79,8 @@ public class Game2Controller implements Initializable {
     @Override
     public void initialize(URL u, ResourceBundle rb)
     {
-        if(currentPlayer == 1){turnLabel.setText("Player 1 turn!");}
-        else if(currentPlayer == 2){turnLabel.setText("Player 2 turn!");}
+        if(currentPlay == 1){turnLabel.setText("Player 1 turn!");}
+        else if(currentPlay == 2){turnLabel.setText("Player 2 turn!");}
 
     }
 }

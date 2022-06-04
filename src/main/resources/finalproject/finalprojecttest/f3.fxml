@@ -176,7 +176,7 @@
       </GridPane>
       <Button layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#Start" text="Game 1" />
       <Button layoutX="116.0" layoutY="572.0" mnemonicParsing="false" onAction="#game3Button" text="Game3" />
-      <Label fx:id="showCurrentPlayer" layoutX="157.0" layoutY="402.0" text="玩家一擲骰" />
+      <Label fx:id="showCurrentPlayer" layoutX="157.0" layoutY="402.0" />
       <Button layoutX="114.0" layoutY="525.0" mnemonicParsing="false" onAction="#Start2" text="Game 2" />
     </children>
 </AnchorPane>
