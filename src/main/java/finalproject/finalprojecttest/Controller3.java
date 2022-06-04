@@ -268,9 +268,10 @@ public class Controller3 implements Initializable {
     }
     public void checkOnGame(){
         //0604
-        int position1 = data.getDataHolder1().pos, position2 = data.getDataHolder2().pos;
+        int position1 = data.getPosPlayer(), position2 = data.getPosPlayer2();
         if (position1 == 5 || position1 == 10 || position1 == 15 || position2 == 5 || position2 == 10 || position2 == 15) {
             label.setText("有人踩到了遊戲格，稍後會自動轉到小遊戲畫面。");
+            System.out.println(position1+" "+position2);
             checkButton.setVisible(false);
             if (position1 == 5 || position2 == 5) countDown(1);
             if (position1 == 10 || position2 == 10) countDown(2);
