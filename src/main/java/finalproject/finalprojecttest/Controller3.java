@@ -121,9 +121,11 @@ public class Controller3 implements Initializable {
 
         }
     }
+    //0604
     public void countDown(int gameNum){
         animationTime = new Timeline(new KeyFrame(Duration.millis(1500), e -> time(gameNum)));
     }
+    //0604
     public void time(int gameNum){
         progressIndicator.setProgress(progressIndicator.getProgress()+0.5);
         if(progressIndicator.getProgress() == 1){
@@ -131,7 +133,7 @@ public class Controller3 implements Initializable {
             //switch to the game;
             switch (gameNum) {
                 case 1 ->{
-                    
+
                 }
             }
         }
