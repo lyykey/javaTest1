@@ -1,17 +1,17 @@
 package finalproject.finalprojecttest;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -107,6 +107,7 @@ public class Controller3 implements Initializable {
         dicePane.setVisible(true);
         dice.whoRolling(DataHolder.currentPlayer);
         diceOutput();
+        checkOnGame();
     }
     /**設定選擇玩家時顯示RadioButton的文字跟UserData*/
     public void setButtonName(){
@@ -232,6 +233,51 @@ public class Controller3 implements Initializable {
         FP.currentStage.setScene(game3Scene);
         FP.currentStage.show();
     }
+    // 0604
+    private final ProgressIndicator progressIndicator = new ProgressIndicator();
+    Timeline animationTime;
+    //0604
+    public void countDown(int gameNum){
+        animationTime = new Timeline(new KeyFrame(Duration.millis(1000), e -> {
+            try {
+                time(gameNum);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }));
+        animationTime.setCycleCount(Timeline.INDEFINITE);
+        animationTime.play();
+    }
+
+    //0604
+
+    public void time(int gameNum) throws IOException {
+        progressIndicator.setProgress(progressIndicator.getProgress()+0.5);
+        if(progressIndicator.getProgress() == 1){
+            animationTime.stop();
+            progressIndicator.setProgress(0);
+            //switch to the game;
+            switch (gameNum) {
+                case 1 -> Start();
+                case 2 -> Start2();
+                default -> game3Button();
+            }
+            label.setText("");
+            checkButtonOnPressed();
+        }
+    }
+    public void checkOnGame(){
+        //0604
+        int position1 = data.getDataHolder1().pos, position2 = data.getDataHolder2().pos;
+        if (position1 == 5 || position1 == 10 || position1 == 15 || position2 == 5 || position2 == 10 || position2 == 15) {
+            label.setText("有人踩到了遊戲格，稍後會自動轉到小遊戲畫面。");
+            checkButton.setVisible(false);
+            if (position1 == 5 || position2 == 5) countDown(1);
+            if (position1 == 10 || position2 == 10) countDown(2);
+            if (position1 == 15 || position2 == 15) countDown(3);
+        }
+    }
+
 
 
     /** @author 鍾秉均 */
