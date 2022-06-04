@@ -60,13 +60,13 @@ public class Controller2 {
     @FXML
     Image e = new Image("真香.png");
     @FXML
-    Image f = new Image("妹子正常.png");
+    Image f = new Image("科P.png");
     @FXML
-    Image g = new Image("妹子正常.png");
+    Image g = new Image("施國琛正常.png");
     @FXML
-    Image  h= new Image("妹子正常.png");
+    Image  h= new Image("世堅.png");
     @FXML
-    Image i= new Image("妹子正常.png");
+    Image i= new Image("國瑜.png");
     @FXML
     Image j = new Image("妹子正常.png");
     @FXML
@@ -80,13 +80,13 @@ public class Controller2 {
     @FXML
     Image er = new Image("真香大.png");
     @FXML
-    Image fr = new Image("妹子大.png");
+    Image fr = new Image("科P大.png");
     @FXML
-    Image gr = new Image("妹子大.png");
+    Image gr = new Image("施國琛大.png");
     @FXML
-    Image hr = new Image("妹子大.png");
+    Image hr = new Image("世堅大.png");
     @FXML
-    Image ir = new Image("妹子大.png");
+    Image ir = new Image("國瑜大.png");
     @FXML
     Image jr = new Image("妹子大.png");
     @FXML
@@ -288,7 +288,7 @@ public class Controller2 {
         jimage.setImage(j);
         wait=1;
         ac=0;bc=0;cc=0;dc=1;ec=0;fc=0;gc=0;hc=0;ic=0;jc=0;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 正妹");
         switch (who){
             case 1:
                 player1 = d;
@@ -297,7 +297,7 @@ public class Controller2 {
                 player2 = d;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "赤鬼伯伯.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();
@@ -344,7 +344,7 @@ public class Controller2 {
         jimage.setImage(j);
         wait=1;
         ac=0;bc=0;cc=0;dc=0;ec=0;fc=1;gc=0;hc=0;ic=0;jc=0;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 科P");
         switch (who){
             case 1:
                 player1 = f;
@@ -353,7 +353,7 @@ public class Controller2 {
                 player2 = f;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "柯P.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();
@@ -372,7 +372,7 @@ public class Controller2 {
         jimage.setImage(j);
         wait=1;
         ac=0;bc=0;cc=0;dc=0;ec=0;fc=0;gc=1;hc=0;ic=0;jc=0;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 施國琛");
         switch (who){
             case 1:
                 player1 = g;
@@ -400,7 +400,7 @@ public class Controller2 {
         jimage.setImage(j);
         wait=1;
         ac=0;bc=0;cc=0;dc=0;ec=0;fc=0;gc=0;hc=1;ic=0;jc=0;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 世堅");
         switch (who){
             case 1:
                 player1 = h;
@@ -409,7 +409,7 @@ public class Controller2 {
                 player2 = h;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "世堅.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();
@@ -428,7 +428,7 @@ public class Controller2 {
         jimage.setImage(j);
         wait=1;
         ac=0;bc=0;cc=0;dc=0;ec=0;fc=0;gc=0;hc=0;ic=1;jc=0;
-        LABEL1.setText("玩家"+who+"選擇了 妹子");
+        LABEL1.setText("玩家"+who+"選擇了 韓國瑜");
         switch (who){
             case 1:
                 player1 = i;
@@ -437,7 +437,7 @@ public class Controller2 {
                 player2 = i;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "國瑜.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();

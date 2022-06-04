@@ -44,10 +44,22 @@
             <Image url="@../../真香.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fimage" fitHeight="182.0" fitWidth="202.0" layoutX="93.0" layoutY="375.0" onMouseClicked="#f_choosed" onMouseEntered="#f_enter" onMouseExited="#f_exit" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="gimage" fitHeight="161.0" fitWidth="217.0" layoutX="314.0" layoutY="363.0" onMouseClicked="#g_choosed" onMouseEntered="#g_enter" onMouseExited="#g_exit" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="himage" fitHeight="174.0" fitWidth="258.0" layoutX="565.0" layoutY="424.0" onMouseClicked="#h_choosed" onMouseEntered="#h_enter" onMouseExited="#h_exit" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="iimage" fitHeight="148.0" fitWidth="168.0" layoutX="893.0" layoutY="402.0" onMouseClicked="#i_choosed" onMouseEntered="#i_enter" onMouseExited="#i_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fimage" fitHeight="182.0" fitWidth="202.0" layoutX="93.0" layoutY="375.0" onMouseClicked="#f_choosed" onMouseEntered="#f_enter" onMouseExited="#f_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../科P.png" />
+         </image></ImageView>
+      <ImageView fx:id="gimage" fitHeight="194.0" fitWidth="185.0" layoutX="355.0" layoutY="365.0" onMouseClicked="#g_choosed" onMouseEntered="#g_enter" onMouseExited="#g_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../施國琛正常.png" />
+         </image></ImageView>
+      <ImageView fx:id="himage" fitHeight="174.0" fitWidth="258.0" layoutX="565.0" layoutY="424.0" onMouseClicked="#h_choosed" onMouseEntered="#h_enter" onMouseExited="#h_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../世堅.png" />
+         </image></ImageView>
+      <ImageView fx:id="iimage" fitHeight="148.0" fitWidth="168.0" layoutX="893.0" layoutY="402.0" onMouseClicked="#i_choosed" onMouseEntered="#i_enter" onMouseExited="#i_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../國瑜.png" />
+         </image></ImageView>
       <ImageView fx:id="jimage" fitHeight="194.0" fitWidth="266.0" layoutX="1105.0" layoutY="410.0" onMouseClicked="#j_choosed" onMouseEntered="#j_enter" onMouseExited="#j_exit" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
