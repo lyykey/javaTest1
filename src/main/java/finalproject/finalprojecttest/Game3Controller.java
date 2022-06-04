@@ -140,12 +140,12 @@ public class Game3Controller implements EventHandler<KeyEvent> {
         }
     }
     private void tie(){
-        tieBoolean = true;
         animationCheck.pause();
         if(round < 2){
             round++;
             whoWinLabel.setText("平手，進入下一回合。");
         }else {
+            tieBoolean = true;
             whoWin = (int)(Math.random()*2)+1;
             whoWinLabel.setText("你們大戰三百回合後還是無法分出勝負，最後因為對方媽媽叫他回家了。\n所以最後由玩家"+whoWin+"獲勝!");
         }
