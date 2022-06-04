@@ -4,6 +4,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -15,6 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.util.Objects;
 
 
 public class Game3Controller implements EventHandler<KeyEvent> {
@@ -75,7 +81,14 @@ public class Game3Controller implements EventHandler<KeyEvent> {
     public void startButtonOnPressed(){
         hintPane.setVisible(false);
         Controller3.game3Scene.getRoot().requestFocus();
-        animationWhoWin = new Timeline(new KeyFrame(Duration.millis(1500), e -> winTime()));
+        animationWhoWin = new Timeline(new KeyFrame(Duration.millis(1500), e -> {
+            //加了 try, catch IOException ex
+            try {
+                winTime();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }));
         animationWhoWin .setCycleCount(Timeline.INDEFINITE);
         animationLeft = new Timeline(new KeyFrame(Duration.millis(20), e -> moveLeft()));
         animationLeft.setCycleCount(Timeline.INDEFINITE);
@@ -112,7 +125,8 @@ public class Game3Controller implements EventHandler<KeyEvent> {
         initialBall();
         showCountdownPane();
     }
-    private void winTime(){
+    //加了 throws IOException
+    private void winTime() throws IOException {
         whoWinTime.setProgress(whoWinTime.getProgress()+0.5);
         System.out.println(whoWinTime.getProgress());
         if(whoWinTime.getProgress() >= 1){
@@ -232,9 +246,15 @@ public class Game3Controller implements EventHandler<KeyEvent> {
         }
         circle.setCenterX(x);
     }
+    //加了 throws IOException
     @FXML
-    public void backButtonOnPressed(){
-        FP.currentStage.setScene(FP.F3Scene);
+    public void backButtonOnPressed() throws IOException {
+        /* 盈利之前的程式**/
+        //FP.currentStage.setScene(FP.F3Scene);
+        Parent Game = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("f3.fxml")));
+        Scene GameScene = new Scene(Game);
+        GameScene.getRoot().requestFocus();
+        FP.currentStage.setScene(GameScene);
     }
 
 
