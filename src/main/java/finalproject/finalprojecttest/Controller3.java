@@ -1,17 +1,17 @@
 package finalproject.finalprojecttest;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -68,6 +68,9 @@ public class Controller3 implements Initializable {
     Label showCurrentPlayer;
 
     public static Scene game3Scene;
+    // 0604
+    private ProgressIndicator progressIndicator;
+    Timeline animationTime;
 
     /**
      * 建構元
@@ -118,11 +121,32 @@ public class Controller3 implements Initializable {
 
         }
     }
+    public void countDown(int gameNum){
+        animationTime = new Timeline(new KeyFrame(Duration.millis(1500), e -> time(gameNum)));
+    }
+    public void time(int gameNum){
+        progressIndicator.setProgress(progressIndicator.getProgress()+0.5);
+        if(progressIndicator.getProgress() == 1){
+            animationTime.stop();
+            //switch to the game;
+            switch (gameNum) {
+                case 1 ->{
+                    
+                }
+            }
+        }
+    }
     @FXML
     public void checkButtonOnPressed(){
-        checkButton.setVisible(false);
-        dicePane.setVisible(false);
-        clickButton.setVisible(true);
+        //0604
+        int position1 = data.getDataHolder1().pos, position2 = data.getDataHolder2().pos;
+        if(position1 == 5 || position1 == 10 || position1 == 15 || position2 == 5 || position2 == 10 || position2 == 15){
+            label.setText("你踩到了遊戲格，稍後會自動轉到小遊戲畫面。");
+        }else{
+            checkButton.setVisible(false);
+            dicePane.setVisible(false);
+            clickButton.setVisible(true);
+        }
         /**if(pos==遊戲格){
          * 就轉到game1、2、3
          *         Parent f4 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("game1.fxml")));
