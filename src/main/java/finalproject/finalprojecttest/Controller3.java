@@ -281,6 +281,7 @@ public class Controller3 implements Initializable {
         player2.setImage(data2.pl);
         if(data.getWhoWin() == 1) {data.setPosPlayer(data.getPosPlayer() + 2);}
         else if(data.getWhoWin() == 2){data2.setPosPlayer2(data2.getPosPlayer2() + 2);}
+        data.setWhoWin(0);
         GridPane.setColumnIndex(player1, data.getPosPlayer());
         GridPane.setColumnIndex(player2, data2.getPosPlayer2());
         columnPlayer1 = data.getPosPlayer();
