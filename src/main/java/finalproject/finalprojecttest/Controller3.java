@@ -223,6 +223,10 @@ public class Controller3 implements Initializable {
      * @author 林盈利*/
     @FXML
     public void game3Button() throws IOException {
+        
+        data.setPosPlayer(columnPlayer1);
+        data2.setPosPlayer2(columnPlayer2);
+
         FXMLLoader game3FxmlLoader = new FXMLLoader(Controller3.class.getResource("Game3.fxml"));
         game3Scene = new Scene(game3FxmlLoader.load());
         FP.currentStage.setScene(game3Scene);
