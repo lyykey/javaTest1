@@ -66,8 +66,8 @@ public class Game3Controller implements EventHandler<KeyEvent> {
     private Timeline animationRight;
     private Timeline animationTime;
     private Timeline animationCheck;
-    private Timeline animationWhoWin;
-    private ProgressIndicator whoWinTime = new ProgressIndicator();
+    private Timeline animationCountDown;
+    private final ProgressIndicator progressIndicatorForCountDownAfterSbWin = new ProgressIndicator();
     private double rightSpeed = 1, leftSpeed = 1;
     private final Image imageNum0 = new Image("數字零.png");
     private final Image imageNum1 = new Image("數字一.png");
@@ -81,15 +81,15 @@ public class Game3Controller implements EventHandler<KeyEvent> {
     public void startButtonOnPressed(){
         hintPane.setVisible(false);
         Controller3.game3Scene.getRoot().requestFocus();
-        animationWhoWin = new Timeline(new KeyFrame(Duration.millis(1500), e -> {
+        animationCountDown = new Timeline(new KeyFrame(Duration.millis(1500), e -> {
             //加了 try, catch IOException ex
             try {
-                winTime();
+                moveProgressIndicatorProgress();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }));
-        animationWhoWin .setCycleCount(Timeline.INDEFINITE);
+        animationCountDown.setCycleCount(Timeline.INDEFINITE);
         animationLeft = new Timeline(new KeyFrame(Duration.millis(20), e -> moveLeft()));
         animationLeft.setCycleCount(Timeline.INDEFINITE);
         animationRight = new Timeline(new KeyFrame(Duration.millis(20), e -> moveRight()));
@@ -119,19 +119,18 @@ public class Game3Controller implements EventHandler<KeyEvent> {
         ballArrive = false;
         leftPlayerChoice = 0;
         rightPlayerChoice = 0;
-        whoWinTime.setProgress(0);
+        progressIndicatorForCountDownAfterSbWin.setProgress(0);
     }
     private void startGame(){
         initialBall();
         showCountdownPane();
     }
     //加了 throws IOException
-    private void winTime() throws IOException {
-        whoWinTime.setProgress(whoWinTime.getProgress()+0.5);
-        System.out.println(whoWinTime.getProgress());
-        if(whoWinTime.getProgress() >= 1){
+    private void moveProgressIndicatorProgress() throws IOException {
+        progressIndicatorForCountDownAfterSbWin.setProgress(progressIndicatorForCountDownAfterSbWin.getProgress()+0.5);
+        if(progressIndicatorForCountDownAfterSbWin.getProgress() >= 1){
             roundLabel.setText("Round " + (round+1));
-            animationWhoWin.stop();
+            animationCountDown.stop();
             whoWinPane.setVisible(false);
             if(whoWin == 0) startGame();
             else {
@@ -150,7 +149,7 @@ public class Game3Controller implements EventHandler<KeyEvent> {
             whoWinLabel.setText("你們大戰三百回合後還是無法分出勝負，最後因為對方媽媽叫他回家了。\n所以最後由玩家"+whoWin+"獲勝!");
         }
         whoWinPane.setVisible(true);
-        animationWhoWin.play();
+        animationCountDown.play();
     }
     private void checkWhoWin(){
         if(ballArrive) {
@@ -160,7 +159,11 @@ public class Game3Controller implements EventHandler<KeyEvent> {
                 tie();
             }
         }else {
+            if(!RPFirstType && LPFirsType) animationRight.pause();
+            if(RPFirstType && !LPFirsType) animationLeft.pause();
             if(!RPFirstType && !LPFirsType) {
+                animationLeft.pause();
+                animationRight.pause();
                 switch (rightPlayerChoice) {
                     case 1 -> {
                         switch (leftPlayerChoice) {
@@ -187,14 +190,12 @@ public class Game3Controller implements EventHandler<KeyEvent> {
             }
         }
         if(whoWin != 0){
-            animationLeft.pause();
-            animationRight.pause();
             animationCheck.pause();
             if(!tieBoolean){
                 whoWinLabel.setText("玩家"+whoWin+"獲勝了!");
             }
             whoWinPane.setVisible(true);
-            animationWhoWin.play();
+            animationCountDown.play();
             DataHolder.whoWin = whoWin;
         }
     }
@@ -262,7 +263,6 @@ public class Game3Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode e = keyEvent.getCode();
-        System.out.println(e);
         if(!ballArrive){
             if(e == KeyCode.NUMPAD1 || e == KeyCode.NUMPAD2 || e == KeyCode.NUMPAD3 || e == KeyCode.DIGIT1 || e == KeyCode.DIGIT2 || e == KeyCode.DIGIT3) {
                 if(RPFirstType) {
