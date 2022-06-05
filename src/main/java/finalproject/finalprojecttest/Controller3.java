@@ -36,25 +36,9 @@ public class Controller3 implements Initializable {
     boolean initial = true;
     ArrayList<String> forwardEventArrayList = new ArrayList<>();
     ArrayList<String> backwardEventArrayList = new ArrayList<>();
-    /**
-     * 用來收集RadioButton
-     * 可使用迴圈顯示或隱藏RadioButton*/
-    RadioButton[] buttonList;
-    /**讓玩家選擇要讓哪位玩家移動*/
-    @FXML
-    RadioButton button1;
-    /**讓玩家選擇要讓哪位玩家移動*/
-    @FXML
-    RadioButton button2;
-    /**讓RadioButton群只能一個被選中*/
-    @FXML
-    ToggleGroup toggleGroup;
     /**用來顯示玩家職骰時出現的文字*/
     @FXML
     Label label;
-    /**點擊時獲取玩家選擇讓哪位玩家移動*/
-    @FXML
-    Button getPlayerChooseWhoButton;
     /**一位玩家擲骰完後換下位玩家時的確認鍵*/
     @FXML
     Button checkButton;
@@ -70,7 +54,7 @@ public class Controller3 implements Initializable {
     public static Scene game3Scene;
 
     /**
-     * 建構元
+     * 類似建構元功用
      * 用來初始化前進/後退事件的ArrayList
      * @author 林盈利
      */
@@ -100,24 +84,11 @@ public class Controller3 implements Initializable {
             setEventList();
             initial = false;
         }
-        buttonList = new RadioButton[]{button1, button2};
         clickButton.setVisible(false);
-        button1.setVisible(false);
-        button2.setVisible(false);
         dicePane.setVisible(true);
         dice.whoRolling(DataHolder.currentPlayer);
         diceOutput();
         checkOnGame();
-    }
-    /**設定選擇玩家時顯示RadioButton的文字跟UserData*/
-    public void setButtonName(){
-        int CP = dice.currentPlayerInt;
-        for(int i = 0, buttonListNumber = 0; buttonListNumber < 2; buttonListNumber++, i++){
-            if (i == CP-1) i++;
-            buttonList[buttonListNumber].setText(dice.playerName[i]);
-            buttonList[buttonListNumber].setUserData(i+1);
-
-        }
     }
     @FXML
     public void checkButtonOnPressed(){
@@ -150,45 +121,10 @@ public class Controller3 implements Initializable {
             FP.currentStage.setScene(FP.End2Scene);
         }
     }
-    /**當玩家需要選擇其他玩家移動時會執行*/
-    /**秉均加一些東西*/
-    @FXML
-    public void getPlayerChooseWhoButtonOnPressed(){
-        for (int i = 0; i < 1; i++){ //讓選擇框隱藏
-            buttonList[i].setVisible(false);
-        }
-        getPlayerChooseWhoButton.setVisible(false);
-        checkButton.setVisible(true);
-        thePlayerBeSelect = 0;
-        if (toggleGroup.getSelectedToggle() != null) {
-            String temp = toggleGroup.getSelectedToggle().getUserData().toString();
-            thePlayerBeSelect = Integer.parseInt(temp);
-        }
-        else label.setText("please select");
-        String event;
-        switch (dice.diceValueForAction) {
-            case 2 -> {
-                event = forwardEventArrayList.get((int) (Math.random()*forwardEventSize));
-                label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"前進了"+dice.diceValueForSteps+"步");
-                dice.changePlayerPosition(thePlayerBeSelect, dice.diceValueForSteps);
-                if(thePlayerBeSelect == 1){advancePlayer1(dice.diceValueForSteps);}
-                else{advancePlayer2(dice.diceValueForSteps);}
-            }
-            case 3 -> {
-                event = backwardEventArrayList.get((int) (Math.random()*backwardEventSize));
-                label.setText(event + "。 所以" + dice.playerName[thePlayerBeSelect-1]+"後退了"+dice.diceValueForSteps+"步");
-                dice.changePlayerPosition(thePlayerBeSelect, -dice.diceValueForSteps);
-                if(thePlayerBeSelect == 1){retreatPlayer1(dice.diceValueForSteps);}
-                else{retreatPlayer2(dice.diceValueForSteps);}
-            }
-        }
 
-
-    }
     /**
      * 擲骰時執行*/
     public void diceOutput(){ //呼叫此函式時，
-        setButtonName();
         dice.rollDice();
         String event;
         String player = "玩家一";
@@ -228,7 +164,7 @@ public class Controller3 implements Initializable {
         }
     }
     /**
-     * 開始遊戲二
+     * 開始遊戲三
      * @author 林盈利*/
     @FXML
     public void game3Button() throws IOException {
@@ -243,8 +179,28 @@ public class Controller3 implements Initializable {
     }
     // 0604
     private final ProgressIndicator progressIndicator = new ProgressIndicator();
-    Timeline animationTime;
+    private Timeline animationTime;
+    private static final ArrayList<Integer> gameList = new ArrayList<>();
+    /**
+     * 用來決定要執行的遊戲
+     * @author 林盈利*/
+    public int gameChooser(){
+        int listIndex, gameNum;
+        if(gameList.size() == 0) {
+            for (int i = 0; i < 3; i++) {
+                gameList.add(i + 1);
+            }
+        }
+        listIndex = (int)(Math.random()*gameList.size());
+        gameNum = gameList.get(listIndex);
+        gameList.remove(listIndex);
+        return gameNum;
+    }
     //0604
+    /**
+     * TimeLine animationTime 的動作函數
+     * @param gameNum 執行的遊戲
+     * @author 林盈利*/
     public void countDown(int gameNum){
         animationTime = new Timeline(new KeyFrame(Duration.millis(1000), e -> {
             try {
@@ -258,7 +214,10 @@ public class Controller3 implements Initializable {
     }
 
     //0604
-
+    /**
+     * 在短暫倒數後切到對應遊戲場景
+     * @param gameNum 執行的遊戲
+     * @author 林盈利*/
     public void time(int gameNum) throws IOException {
         progressIndicator.setProgress(progressIndicator.getProgress()+0.5);
         if(progressIndicator.getProgress() == 1){
@@ -274,15 +233,20 @@ public class Controller3 implements Initializable {
             checkButtonOnPressed();
         }
     }
+    /**
+     * 用來檢查是否踩到遊戲格
+     * @author 林盈利*/
     public void checkOnGame(){
         //0604
-        int position1 = data.getDataHolder1().pos, position2 = data.getDataHolder2().pos;
-        if (position1 == 5 || position1 == 10 || position1 == 15 || position2 == 5 || position2 == 10 || position2 == 15) {
+        int position1 = data.getPosPlayer(), position2 = data.getPosPlayer2();
+        boolean overPosition, onGameGrid, lessGameGrid;
+        onGameGrid = (position1 % 5) == 0 || (position2 % 5) == 0;
+        overPosition = (position1 <= 26) && (position2 <= 26);
+        lessGameGrid = (position1 >= 4) && (position2 >= 4);
+        if (onGameGrid && overPosition && lessGameGrid) {
             label.setText("有人踩到了遊戲格，稍後會自動轉到小遊戲畫面。");
             checkButton.setVisible(false);
-            if (position1 == 5 || position2 == 5) countDown(1);
-            if (position1 == 10 || position2 == 10) countDown(2);
-            if (position1 == 15 || position2 == 15) countDown(3);
+            countDown(gameChooser());
         }
     }
 
