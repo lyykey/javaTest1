@@ -34,13 +34,8 @@ public class Controller1 {
 
     @FXML
     public void gameOver(ActionEvent e) throws IOException {
-        label.setVisible(false);
-        bt1.setVisible(false);
-        Parent GameOver = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Gameover.fxml")));
-        Scene GameOverScene = new Scene(GameOver);
-        GameOverScene.getRoot().requestFocus();
-        FP.currentStage.setScene(GameOverScene);
-        GameOver.setVisible(true);
+        FP.EndScene.getRoot().requestFocus();
+        FP.currentStage.setScene(FP.EndScene);
     }
 
 }

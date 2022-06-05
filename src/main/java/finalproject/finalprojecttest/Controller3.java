@@ -141,6 +141,14 @@ public class Controller3 implements Initializable {
             DataHolder.currentPlayer = 1;
             showCurrentPlayer.setText("現在輪到玩家一擲骰");
         }
+        if(data.getPosPlayer()>=30) {
+            FP.EndScene.getRoot().requestFocus();
+            FP.currentStage.setScene(FP.EndScene);
+        }
+        if(data.getPosPlayer2()>=30){
+            FP.End2Scene.getRoot().requestFocus();
+            FP.currentStage.setScene(FP.End2Scene);
+        }
     }
     /**當玩家需要選擇其他玩家移動時會執行*/
     /**秉均加一些東西*/
