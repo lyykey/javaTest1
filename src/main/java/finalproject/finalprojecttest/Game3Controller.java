@@ -128,7 +128,6 @@ public class Game3Controller implements EventHandler<KeyEvent> {
     //加了 throws IOException
     private void moveProgressIndicatorProgress() throws IOException {
         progressIndicatorForCountDownAfterSbWin.setProgress(progressIndicatorForCountDownAfterSbWin.getProgress()+0.5);
-        System.out.println(progressIndicatorForCountDownAfterSbWin.getProgress());
         if(progressIndicatorForCountDownAfterSbWin.getProgress() >= 1){
             roundLabel.setText("Round " + (round+1));
             animationCountDown.stop();

@@ -71,6 +71,15 @@ public class Dice {
                 action = 0;
             }
         }
+        if(data.currentPlayer == 1){
+            if((data.getPosPlayer2() - data.getPosPlayer()) > 7){
+                action = 0;
+            }
+        }else{
+            if((data.getPosPlayer() - data.getPosPlayer2()) > 7){
+                action = 0;
+            }
+        }
         diceValueForAction=  action;// 骰作何種動作
         diceValueForSteps = steps; // 骰走幾步
     }
