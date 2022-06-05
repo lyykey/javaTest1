@@ -15,34 +15,37 @@
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
-      <ImageView fx:id="game3Scene" fitHeight="750.0" fitWidth="753.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="game3Scene" fitHeight="750.0" fitWidth="1260.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../stone-wall.png" />
+            <Image url="@../../grass.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="34.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../跑到.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="750.0" fitWidth="750.0" layoutX="825.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
-         <image>
-            <Image url="@../../stone-wall.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="750.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="12.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../跑到.png" />
          </image>
       </ImageView>
-        <Pane fx:id="dicePane" layoutX="488.0" layoutY="497.0" prefHeight="134.0" prefWidth="600.0" visible="false">
+      <ImageView fitHeight="750.0" fitWidth="1256.0" layoutX="1354.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
+         <image>
+            <Image url="@../../grass.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="728.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../跑到.png" />
+         </image>
+      </ImageView>
+        <Pane fx:id="dicePane" layoutX="178.0" layoutY="497.0" prefHeight="134.0" prefWidth="910.0" visible="false">
             <children>
-                <Label fx:id="label" layoutX="276.0" layoutY="26.0" text="Label" />
-                <Button fx:id="checkButton" layoutX="377.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="38.0" prefWidth="101.0" text="Ok!" visible="false">
+                <Label fx:id="label" alignment="CENTER" layoutX="-46.0" layoutY="-17.0" prefHeight="60.0" prefWidth="776.0" text="Label">
                <font>
-                  <Font name="Comic Sans MS" size="18.0" />
+                  <Font size="36.0" />
+               </font></Label>
+                <Button fx:id="checkButton" layoutX="725.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="90.0" prefWidth="145.0" text="Ok!" visible="false">
+               <font>
+                  <Font name="Comic Sans MS" size="36.0" />
                </font></Button>
-                <RadioButton fx:id="button1" layoutX="163.0" layoutY="90.0" mnemonicParsing="false" text="RadioButton">
+                <RadioButton fx:id="button1" layoutX="180.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" text="RadioButton">
                     <toggleGroup>
                         <ToggleGroup fx:id="toggleGroup" />
                     </toggleGroup>
@@ -56,15 +59,15 @@
                </font></RadioButton>
             </children>
         </Pane>
-        <Button fx:id="clickButton" layoutX="756.0" layoutY="490.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
+        <Button fx:id="clickButton" layoutX="926.0" layoutY="452.0" mnemonicParsing="false" onAction="#Click" prefHeight="86.0" prefWidth="101.0" style="-fx-background-image: font2.png;">
          <graphic>
-            <ImageView fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="81.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../png_dice_30474.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <GridPane fx:id="board1" layoutX="54.0" layoutY="140.0" prefHeight="38.0" prefWidth="1468.0">
+      <GridPane fx:id="board1" layoutX="32.0" layoutY="138.0" prefHeight="38.0" prefWidth="1468.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -124,7 +127,7 @@
             <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <GridPane fx:id="board2" layoutX="51.0" layoutY="316.0" prefHeight="38.0" prefWidth="1468.0">
+      <GridPane fx:id="board2" layoutX="29.0" layoutY="314.0" prefHeight="38.0" prefWidth="1468.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -174,9 +177,12 @@
             </ImageView>
          </children>
       </GridPane>
-      <Button layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#Start" text="Game 1" />
-      <Button layoutX="116.0" layoutY="572.0" mnemonicParsing="false" onAction="#game3Button" text="Game3" />
-      <Label fx:id="showCurrentPlayer" layoutX="157.0" layoutY="402.0" />
-      <Button layoutX="114.0" layoutY="525.0" mnemonicParsing="false" onAction="#Start2" text="Game 2" />
+      <Button layoutX="51.0" layoutY="497.0" mnemonicParsing="false" onAction="#Start" text="Game 1" />
+      <Button layoutX="50.0" layoutY="564.0" mnemonicParsing="false" onAction="#game3Button" prefHeight="26.0" prefWidth="58.0" text="Game 3" />
+      <Label fx:id="showCurrentPlayer" alignment="CENTER" layoutX="571.0" layoutY="375.0" prefHeight="60.0" prefWidth="432.0" text="Player 1 turn">
+         <font>
+            <Font name="Arial" size="43.0" />
+         </font></Label>
+      <Button layoutX="50.0" layoutY="531.0" mnemonicParsing="false" onAction="#Start2" prefHeight="26.0" prefWidth="58.0" text="Game 2" />
     </children>
 </AnchorPane>
