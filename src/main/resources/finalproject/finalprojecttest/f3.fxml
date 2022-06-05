@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
       <ImageView fx:id="game3Scene" fitHeight="750.0" fitWidth="1260.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -37,11 +29,11 @@
       </ImageView>
         <Pane fx:id="dicePane" layoutX="178.0" layoutY="497.0" prefHeight="134.0" prefWidth="910.0" visible="false">
             <children>
-                <Label fx:id="label" alignment="CENTER" layoutX="-46.0" layoutY="-17.0" prefHeight="60.0" prefWidth="776.0" text="Label">
+                <Label fx:id="label" alignment="CENTER" layoutX="-46.0" layoutY="-17.0" prefHeight="60.0" prefWidth="900.0" text="Label" textFill="RED">
                <font>
                   <Font size="36.0" />
                </font></Label>
-                <Button fx:id="checkButton" layoutX="725.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="90.0" prefWidth="145.0" text="Ok!" visible="false">
+                <Button fx:id="checkButton" layoutX="972.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="90.0" prefWidth="145.0" text="Ok!" visible="false">
                <font>
                   <Font name="Comic Sans MS" size="36.0" />
                </font></Button>
@@ -59,9 +51,9 @@
                </font></RadioButton>
             </children>
         </Pane>
-        <Button fx:id="clickButton" layoutX="926.0" layoutY="452.0" mnemonicParsing="false" onAction="#Click" prefHeight="86.0" prefWidth="101.0" style="-fx-background-image: font2.png;">
+        <Button fx:id="clickButton" layoutX="1156.0" layoutY="481.0" mnemonicParsing="false" onAction="#Click" prefHeight="108.0" prefWidth="129.0" style="-fx-background-image: font2.png;">
          <graphic>
-            <ImageView fitHeight="81.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="117.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../png_dice_30474.png" />
                </image>
@@ -179,7 +171,7 @@
       </GridPane>
       <Button layoutX="51.0" layoutY="497.0" mnemonicParsing="false" onAction="#Start" text="Game 1" />
       <Button layoutX="50.0" layoutY="564.0" mnemonicParsing="false" onAction="#game3Button" prefHeight="26.0" prefWidth="58.0" text="Game 3" />
-      <Label fx:id="showCurrentPlayer" alignment="CENTER" layoutX="571.0" layoutY="375.0" prefHeight="60.0" prefWidth="432.0" text="Player 1 turn">
+      <Label fx:id="showCurrentPlayer" alignment="CENTER" layoutX="571.0" layoutY="375.0" prefHeight="60.0" prefWidth="432.0" text="Player 1 turn" textFill="#f70000">
          <font>
             <Font name="Arial" size="43.0" />
          </font></Label>
