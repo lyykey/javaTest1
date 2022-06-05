@@ -56,10 +56,13 @@
          <image>
             <Image url="@../../世堅.png" />
          </image></ImageView>
-      <ImageView fx:id="iimage" fitHeight="148.0" fitWidth="168.0" layoutX="893.0" layoutY="402.0" onMouseClicked="#i_choosed" onMouseEntered="#i_enter" onMouseExited="#i_exit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iimage" fitHeight="197.0" fitWidth="225.0" layoutX="875.0" layoutY="435.0" onMouseClicked="#i_choosed" onMouseEntered="#i_enter" onMouseExited="#i_exit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../國瑜.png" />
          </image></ImageView>
-      <ImageView fx:id="jimage" fitHeight="194.0" fitWidth="266.0" layoutX="1105.0" layoutY="410.0" onMouseClicked="#j_choosed" onMouseEntered="#j_enter" onMouseExited="#j_exit" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="jimage" fitHeight="194.0" fitWidth="266.0" layoutX="1190.0" layoutY="414.0" onMouseClicked="#j_choosed" onMouseEntered="#j_enter" onMouseExited="#j_exit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../RICK.png" />
+         </image></ImageView>
     </children>
 </AnchorPane>
