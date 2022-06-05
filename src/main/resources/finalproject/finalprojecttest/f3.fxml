@@ -154,7 +154,10 @@
       </GridPane>
       <Button disable="true" layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#Start" text="Game 1" visible="false" />
       <Button disable="true" layoutX="116.0" layoutY="572.0" mnemonicParsing="false" onAction="#game3Button" text="Game3" visible="false" />
-      <Label fx:id="showCurrentPlayer" layoutX="157.0" layoutY="402.0" />
+      <Label fx:id="showCurrentPlayer" layoutX="600.0" layoutY="402.0" text="現在輪到玩家一擲骰">
+         <font>
+            <Font size="40.0" />
+         </font></Label>
       <Button disable="true" layoutX="114.0" layoutY="525.0" mnemonicParsing="false" onAction="#Start2" text="Game 2" visible="false" />
     </children>
 </AnchorPane>

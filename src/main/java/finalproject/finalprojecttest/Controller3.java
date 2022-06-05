@@ -304,7 +304,10 @@ public class Controller3 implements Initializable {
         GridPane.setColumnIndex(player2, data2.getPosPlayer2());
         columnPlayer1 = data.getPosPlayer();
         columnPlayer2 = data2.getPosPlayer2();
-        showCurrentPlayer.setText("現在輪到玩家"+ DataHolder.currentPlayer +"擲骰");
+        String a="";
+        if(DataHolder.currentPlayer==1) a ="一";
+        if(DataHolder.currentPlayer==2) a = "二";
+        showCurrentPlayer.setText("現在輪到玩家"+ a +"擲骰");
     }
 
     @FXML
