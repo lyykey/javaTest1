@@ -20,6 +20,7 @@ public class FP extends Application {
     public static Scene F3Scene;
     public static Scene EndScene;
     public static Scene End2Scene;
+    public static Scene End3Scene;
 
     public static void main(String[] args) {
         launch();
@@ -32,6 +33,7 @@ public class FP extends Application {
         FXMLLoader fxmlLoader1 = new FXMLLoader(FP.class.getResource("f1.fxml"));
         FXMLLoader fxmlLoader2 = new FXMLLoader(FP.class.getResource("f2.fxml"));
         FXMLLoader fxmlLoaderEnd = new FXMLLoader(FP.class.getResource("Gameover.fxml"));
+        FXMLLoader fxmlLoaderBN = new FXMLLoader(FP.class.getResource("Gameover1.fxml"));
         FXMLLoader fxmlLoaderEnd2 = new FXMLLoader(FP.class.getResource("Gameover2.fxml"));
 
         currentStage = primaryStage;
@@ -39,6 +41,7 @@ public class FP extends Application {
         F2Scene = new Scene(fxmlLoader2.load());
         EndScene = new Scene(fxmlLoaderEnd.load());
         End2Scene = new Scene(fxmlLoaderEnd2.load());
+        End3Scene = new Scene(fxmlLoaderBN.load());
 
         currentStage.setTitle("我一定要贏");
         FP.F1Scene.getRoot().requestFocus();

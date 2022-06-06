@@ -34,8 +34,8 @@ public class Controller1 {
 
     @FXML
     public void gameOver(ActionEvent e) throws IOException {
-        FP.EndScene.getRoot().requestFocus();
-        FP.currentStage.setScene(FP.EndScene);
+        FP.End3Scene.getRoot().requestFocus();
+        FP.currentStage.setScene(FP.End3Scene);
     }
 
 }
