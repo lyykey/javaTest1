@@ -3,23 +3,55 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.finalprojecttest.Controller3">
     <children>
+      <ImageView fitHeight="750.0" fitWidth="1256.0" layoutX="1354.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
+         <image>
+            <Image url="@../../grass.jpg" />
+         </image>
+      </ImageView>
       <ImageView fx:id="game3Scene" fitHeight="750.0" fitWidth="1260.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../grass.jpg" />
          </image>
       </ImageView>
+      <Pane layoutX="50.0" layoutY="386.0" prefHeight="350.0" prefWidth="1400.0">
+         <children>
+            <Rectangle arcHeight="5.0" height="350.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" width="1400.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.21052631735801697" green="0.20467835664749146" blue="0.20467835664749146" opacity="0.8299999833106995" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.15789473056793213" green="0.15643274784088135" blue="0.15643274784088135" opacity="0.8899999856948853" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+              <Button fx:id="clickButton" layoutX="646.0" layoutY="122.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-color: node;" textFill="TRANSPARENT">
+               <graphic>
+                  <ImageView fitHeight="117.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../png_dice_30474.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></Pane>
       <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="12.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../跑到.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="750.0" fitWidth="1256.0" layoutX="1354.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2">
-         <image>
-            <Image url="@../../grass.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="458.0" fitWidth="764.0" layoutX="728.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
@@ -27,26 +59,18 @@
             <Image url="@../../跑到.png" />
          </image>
       </ImageView>
-        <Pane fx:id="dicePane" layoutX="178.0" layoutY="497.0" prefHeight="134.0" prefWidth="910.0" visible="false">
+        <Pane fx:id="dicePane" layoutX="90.0" layoutY="462.0" prefHeight="238.0" prefWidth="1311.0" visible="false">
             <children>
-                <Label fx:id="label" alignment="CENTER" layoutX="-46.0" layoutY="-17.0" prefHeight="60.0" prefWidth="900.0" text="Label" textFill="RED">
+                <Label fx:id="label" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="1281.0" text="Label" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font></Label>
-                <Button fx:id="checkButton" layoutX="972.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="90.0" prefWidth="145.0" text="Ok!" visible="false">
+                <Button fx:id="checkButton" layoutX="972.0" layoutY="116.0" mnemonicParsing="false" onAction="#checkButtonOnPressed" prefHeight="90.0" prefWidth="145.0" style="-fx-background-color: white;" text="Ok!" visible="false">
                <font>
                   <Font name="Comic Sans MS" size="36.0" />
                </font></Button>
             </children>
         </Pane>
-        <Button fx:id="clickButton" layoutX="756.0" layoutY="490.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-image: font2.png;">
-         <graphic>
-            <ImageView fitHeight="117.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../png_dice_30474.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
       <GridPane fx:id="board1" layoutX="32.0" layoutY="138.0" prefHeight="38.0" prefWidth="1468.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -154,7 +178,7 @@
       </GridPane>
       <Button disable="true" layoutX="115.0" layoutY="490.0" mnemonicParsing="false" onAction="#Start" text="Game 1" visible="false" />
       <Button disable="true" layoutX="116.0" layoutY="572.0" mnemonicParsing="false" onAction="#game3Button" text="Game3" visible="false" />
-      <Label fx:id="showCurrentPlayer" layoutX="600.0" layoutY="402.0" text="現在輪到玩家一擲骰">
+      <Label fx:id="showCurrentPlayer" layoutX="586.0" layoutY="401.0" text="現在輪到玩家一擲骰" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font></Label>
