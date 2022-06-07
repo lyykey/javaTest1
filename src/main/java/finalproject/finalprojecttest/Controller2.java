@@ -381,7 +381,7 @@ public class Controller2 {
                 player2 = g;
                 break;
         }
-        String sound = "力量人.mp3";
+        String sound = "施.mp3";
         Media letterSound = new Media(new File(sound).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
         mediaPlayer.play();
