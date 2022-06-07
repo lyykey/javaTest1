@@ -39,7 +39,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-              <Button fx:id="clickButton" layoutX="646.0" layoutY="122.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" textFill="TRANSPARENT">
+              <Button fx:id="clickButton" layoutX="646.0" layoutY="122.0" mnemonicParsing="false" onAction="#Click" prefHeight="46.0" prefWidth="58.0" style="-fx-background-color: transparent;" textFill="TRANSPARENT">
                <graphic>
                   <ImageView fitHeight="117.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
                      <image>
