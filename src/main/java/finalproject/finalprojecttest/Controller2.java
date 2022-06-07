@@ -496,11 +496,11 @@ public class Controller2 {
         Controller3.data2.setPosPlayer2(0);
         data.setimage(player1);
         data2.setimage(player2);
-        String sound = "太陽.mp3";
-        Media letterSound = new Media(new File(sound).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+//        String sound = "太陽.mp3";
+//        Media letterSound = new Media(new File(sound).toURI().toString());
+//        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//        mediaPlayer.play();
         FXMLLoader fxmlLoader3 = new FXMLLoader(FP.class.getResource("f3.fxml"));
         FP.F3Scene = new Scene(fxmlLoader3.load());
         FP.F3Scene.getRoot().requestFocus();
