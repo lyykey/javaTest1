@@ -84,6 +84,7 @@ public class DataHolder {
     }
 
     public void setPosPlayer(int posPlayer1) {
+        dataHolder.pos = posPlayer1;
         posPlayer = posPlayer1;
     }
     public int getPosPlayer2() {
@@ -91,6 +92,7 @@ public class DataHolder {
     }
 
     public void setPosPlayer2(int posPlayer2) {
+        dataHolder2.pos = posPlayer2;
         DataHolder.posPlayer2 = posPlayer2;
     }
     }
