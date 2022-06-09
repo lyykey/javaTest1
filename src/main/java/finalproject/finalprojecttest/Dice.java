@@ -6,7 +6,7 @@ public class Dice {
     public int diceValueForSteps = 0;
     public int currentPlayerInt = 1;
     public int balanceCheckPoint = 30; //between 0 ~ 99. The higher value, the higher the probability of moving backward.
-    public int balanceOtherOrSelf = 10; //between 0 ~ 20 The higher value, the higher the probability of Self.
+    public int balanceOthersOrSelf = 10; //between 0 ~ 20 The higher value, the higher the probability of others.
     public String[] playerName = {"玩家一","玩家二","玩家三","玩家四"};
 
 
@@ -45,24 +45,39 @@ public class Dice {
      * 用來擲動作 步數
      * */
     public void rollDice(){
-        if((data.getDataHolder1().pos + data.getDataHolder2().pos) <30) balanceCheckPoint = 10;
-        else balanceCheckPoint = 40;
+//        System.out.println("Player1 pos: "+data.pos);
+//        System.out.println("Player2 pos: "+DataHolder.get2().pos);
+//        System.out.println("Player1 posPlayer: "+DataHolder.posPlayer);
+//        System.out.println("Player2 posPlayer: "+DataHolder.posPlayer2);
         int action = (int)(Math.random()*100), steps = (int)(Math.random()*4);
         steps = (steps == 0)? 4 : steps;
         if(currentPlayerInt == 1){
-            if(data.getDataHolder1().pos < 20) balanceOtherOrSelf = 15;
-            else balanceOtherOrSelf = 10;
+            if(data.getDataHolder1().pos < 20) {
+                balanceOthersOrSelf = 7;
+                balanceCheckPoint = 10;
+            }
+            else {
+                balanceOthersOrSelf = 10;
+                balanceCheckPoint = 20;
+            }
         }else {
-            if(data.getDataHolder1().pos < 20) balanceOtherOrSelf = 15;
-            else balanceOtherOrSelf = 10;
+            if(data.getDataHolder2().pos < 20) {
+                balanceOthersOrSelf = 7;
+                balanceCheckPoint = 10;
+            }
+            else {
+                balanceOthersOrSelf = 10;
+                balanceCheckPoint = 20;
+            }
         }
+        if(data.getPosPlayer() <= 5 || data.getPosPlayer2() <= 5) balanceCheckPoint = 0;
         if (action >= balanceCheckPoint) { //大於等於CheckPoint 則骰到前進相關動作
-            if (Math.random()*20 >=balanceOtherOrSelf) { //這裡的balanceOtherOrSelf可以用來調整骰到別人或自己移動的機率
+            if (Math.random()*20 >=balanceOthersOrSelf) { //這裡的balanceOtherOrSelf可以用來調整骰到別人或自己移動的機率
                 action = 0;
             }else action = 2;
         }
-        else {
-            if(Math.random()*2 >=1) { //小於CheckPoint 則骰到後退相關動作
+        else { //小於CheckPoint 則骰到後退相關動作
+            if(Math.random()*20 >=balanceOthersOrSelf) {
                 action = 1;
             }else action = 3;
         }
@@ -71,12 +86,13 @@ public class Dice {
                 action = 0;
             }
         }
-        if(data.currentPlayer == 1){
-            if((data.getPosPlayer2() - data.getPosPlayer()) > 7){
+        if(DataHolder.currentPlayer == 1){
+            if((data.getPosPlayer2() - data.getPosPlayer()) > 5 ){
                 action = 0;
             }
+
         }else{
-            if((data.getPosPlayer() - data.getPosPlayer2()) > 7){
+            if((data.getPosPlayer() - data.getPosPlayer2()) > 5){
                 action = 0;
             }
         }
@@ -85,12 +101,8 @@ public class Dice {
     }
     /**
      * 用來設定現在是誰在骰*/
-    public void whoRolling(int whichPlayer){
+    public void whoRolling(int whichPlayer){ //用來設定現在是誰在骰骰子
         this.currentPlayerInt = whichPlayer;
-        switch (whichPlayer) { //用來設定現在是誰在骰骰子
-            case 1 -> currentPlayerInt = 1;
-            case 2 -> currentPlayerInt = 2;
-        }
     }
 
 
