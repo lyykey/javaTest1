@@ -11,9 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -132,6 +135,10 @@ public class Controller3 implements Initializable {
             case 0 -> { // 自己前進
                 event = forwardEventArrayList.get((int) (Math.random() * forwardEventSize));
                 label.setText(event + "。 所以你前進了"+dice.diceValueForSteps+"步");
+                String sound = "Right.mp3";
+                Media letterSound = new Media(new File(sound).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+                mediaPlayer.play();
                 dice.changePlayerPosition(dice.currentPlayerInt, dice.diceValueForSteps);
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1) {advancePlayer1(dice.diceValueForSteps);}
@@ -140,6 +147,10 @@ public class Controller3 implements Initializable {
             case 1 -> { // 自己後退
                 event = backwardEventArrayList.get((int) (Math.random()*backwardEventSize));
                 label.setText(event + "。 所以你後退了"+dice.diceValueForSteps+"步");
+                String sound = "pupu.mp3";
+                Media letterSound = new Media(new File(sound).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+                mediaPlayer.play();
                 dice.changePlayerPosition(dice.currentPlayerInt, -dice.diceValueForSteps);
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1) {retreatPlayer1(dice.diceValueForSteps);}
@@ -149,6 +160,10 @@ public class Controller3 implements Initializable {
                 //顯示選擇 和確認按鈕 確認按鈕按下後根據選擇設定移動玩家、玩家位置移動、移動幾步\
                 if(DataHolder.currentPlayer == 1) player = "玩家二";
                 label.setText("看來幸運並不在你身上發生，而是在"+player+"身上!");
+                String sound = "pupu.mp3";
+                Media letterSound = new Media(new File(sound).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+                mediaPlayer.play();
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1){advancePlayer2(dice.diceValueForSteps);}
                 else{advancePlayer1(dice.diceValueForSteps);}
@@ -156,6 +171,10 @@ public class Controller3 implements Initializable {
             case 3 -> { //別人後退
                 if(DataHolder.currentPlayer == 1) player = "玩家二";
                 label.setText("今天悲劇並不在你身上發生，而是在"+player+"身上!");
+                String sound = "Right.mp3";
+                Media letterSound = new Media(new File(sound).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
+                mediaPlayer.play();
                 checkButton.setVisible(true);
                 if(DataHolder.currentPlayer == 1){retreatPlayer2(dice.diceValueForSteps);}
                 else{retreatPlayer1(dice.diceValueForSteps);}
