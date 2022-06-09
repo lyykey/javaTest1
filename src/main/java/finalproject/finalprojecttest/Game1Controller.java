@@ -302,7 +302,7 @@ public class Game1Controller implements Initializable {
             //X winner
             if (line.equals("xxx")) {
                 Controller3.data.setWhoWin(2);
-                turnLabel.setText("PLAYER 2 WON");
+                turnLabel.setText("PLAYER 2 WINS");
                 returnBtn.setVisible(true);
                 return;
                 //Start();
@@ -311,7 +311,7 @@ public class Game1Controller implements Initializable {
             //O winner
             else if (line.equals("ooo")) {
                 Controller3.data.setWhoWin(1);
-                turnLabel.setText("PLAYER 1 WON");
+                turnLabel.setText("PLAYER 1 WINS");
                 returnBtn.setVisible(true);
                 return;
                 //Start();
