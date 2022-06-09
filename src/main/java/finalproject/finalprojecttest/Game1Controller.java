@@ -305,7 +305,6 @@ public class Game1Controller implements Initializable {
                 turnLabel.setText("PLAYER 2 WINS");
                 returnBtn.setVisible(true);
                 return;
-                //Start();
             }
 
             //O winner
@@ -314,7 +313,6 @@ public class Game1Controller implements Initializable {
                 turnLabel.setText("PLAYER 1 WINS");
                 returnBtn.setVisible(true);
                 return;
-                //Start();
             }
         }
         didDraw++;
@@ -325,7 +323,6 @@ public class Game1Controller implements Initializable {
             returnBtn.setVisible(true);
         }
 
-        //ObservableList<Node> childrens; {assert false;childrens = board.getChildren();}
 
 
 

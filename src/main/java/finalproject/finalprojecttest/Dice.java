@@ -45,10 +45,6 @@ public class Dice {
      * 用來擲動作 步數
      * */
     public void rollDice(){
-//        System.out.println("Player1 pos: "+data.pos);
-//        System.out.println("Player2 pos: "+DataHolder.get2().pos);
-//        System.out.println("Player1 posPlayer: "+DataHolder.posPlayer);
-//        System.out.println("Player2 posPlayer: "+DataHolder.posPlayer2);
         int action = (int)(Math.random()*100), steps = (int)(Math.random()*4);
         steps = (steps == 0)? 4 : steps;
         if(currentPlayerInt == 1){

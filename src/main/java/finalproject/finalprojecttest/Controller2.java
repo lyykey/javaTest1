@@ -2,7 +2,6 @@ package finalproject.finalprojecttest;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,7 +12,6 @@ import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 public class Controller2 {
     int who = 1;int wait = 0;int ac = 0;int bc = 0;int cc = 0;int dc=0;int ec = 0;int fc = 0;int gc = 0;int hc = 0;int ic=0;int jc = 0;
@@ -496,11 +494,6 @@ public class Controller2 {
         Controller3.data2.setPosPlayer2(0);
         data.setimage(player1);
         data2.setimage(player2);
-//        String sound = "太陽.mp3";
-//        Media letterSound = new Media(new File(sound).toURI().toString());
-//        MediaPlayer mediaPlayer = new MediaPlayer(letterSound);
-//        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-//        mediaPlayer.play();
         FXMLLoader fxmlLoader3 = new FXMLLoader(FP.class.getResource("f3.fxml"));
         FP.F3Scene = new Scene(fxmlLoader3.load());
         FP.F3Scene.getRoot().requestFocus();

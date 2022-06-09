@@ -1,17 +1,10 @@
 package finalproject.finalprojecttest;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
-
-import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 
 public class FP extends Application {
     public static Stage currentStage;

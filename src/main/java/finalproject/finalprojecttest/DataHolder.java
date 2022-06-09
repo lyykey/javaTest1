@@ -18,9 +18,6 @@ public class DataHolder {
     public void setimage(Image v){
         pl = v;
     }
-//    public Image getimage(){
-//        return pl;
-//    }
 
     public int pos;
     public int selectIndex;
@@ -41,13 +38,6 @@ public class DataHolder {
     /**
      * 用來設定 moveSteps 的方法*/
     public void setMoveSteps(int steps) { moveSteps = steps; }
-    /**
-     * @return moveSteps*/
-    public int getMoveSteps() { return moveSteps; }
-    /**
-     * @return whoMove*/
-    public int getWhoMove() { return whoMove; }
-
 
 
     /**
@@ -66,13 +56,6 @@ public class DataHolder {
     }
     /**當前是哪位玩家踩到遊戲格 1為玩家一 2為玩家二*/
     public static int whoStartGame = 0;
-//    public boolean changePos(int value){
-//        if(pos + value > 100 || pos +value < 0)
-//            return false;
-//
-//        pos+=value;
-//        return true;
-//    }
     public static int whoWin = 0;
     public int getWhoWin() { return whoWin; }
     public void setWhoWin(int player){whoWin = player;}

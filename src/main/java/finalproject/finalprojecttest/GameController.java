@@ -27,7 +27,6 @@ public class GameController {
     Label labelDiced;
 
 
-    //Player player1 = new Player(im, posPlayer1, 0,board1);
 
     @FXML
     public void dice()
@@ -59,7 +58,6 @@ public class GameController {
     private void advancePlayer1(int steps)
     {
         posPlayer1 += steps;
-        //player1.walk(4,0);
         GridPane.setRowIndex(player1, posPlayer1);
     }
     private void advancePlayer2(int steps)
