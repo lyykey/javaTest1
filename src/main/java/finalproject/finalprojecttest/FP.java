@@ -43,7 +43,7 @@ public class FP extends Application {
         End2Scene = new Scene(fxmlLoaderEnd2.load());
         End3Scene = new Scene(fxmlLoaderBN.load());
 
-        currentStage.setTitle("我一定要贏");
+        currentStage.setTitle("我一定要贏👻");
         FP.F1Scene.getRoot().requestFocus();
         currentStage.setScene(F1Scene);
         currentStage.show();
