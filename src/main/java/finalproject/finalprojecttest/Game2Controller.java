@@ -50,6 +50,12 @@ public class Game2Controller implements Initializable {
         }
         if(p1Number != -1 && p2Number != -1)
         {
+            if(p1Number == p2Number)
+            {
+                p1Number = -1;
+                p2Number = -1;
+                return;
+            }
             if(Math.abs(answer - p1Number) < Math.abs(answer - p2Number))
             {
                 turnLabel.setText("玩家一獲勝!並且前進兩格 答案是" + answer);
